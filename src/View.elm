@@ -36,4 +36,6 @@ view model =
 
 homeView : Models.Model -> Html Messages.Msg
 homeView model =
-  button [ id "hibutton", onClick (Hello "hi") ] [ text "hi" ]
+  div []
+  [ text "hi" 
+  ]

@@ -19,11 +19,15 @@ init : ( Route, Hop.Types.Location ) -> ( Model, Cmd Msg )
 init ( route, location )=
   let
     path = Routing.Utils.reverse (route)
+    model = case route of
+              ReportRoute rpt -> initModel HomeRoute { path = [], query = Dict.empty }
+              SupplyDashRoute -> initModel SupplyDashRoute { path = [], query = Dict.empty }
+              _ -> initModel HomeRoute { path = [], query = Dict.empty }
   in
     case route of
-      ReportRoute rpt -> (initModel HomeRoute { path = [], query = Dict.empty }, Cmd.batch [ (navigationCmd path), getReportMenuItems ] )
-      SupplyDashRoute -> (initModel SupplyDashRoute { path = [], query = Dict.empty }, Cmd.batch [ (navigationCmd path), getGaugeData ] )
-      _ -> (initModel HomeRoute { path = [], query = Dict.empty }, (navigationCmd path) )
+      ReportRoute rpt -> (model, Cmd.batch [ (navigationCmd path), (getReportMenuItems model) ] )
+      SupplyDashRoute -> (model, Cmd.batch [ (navigationCmd path), getGaugeData ] )
+      _ -> (model, (navigationCmd path) )
 
 
 -- SUBSCRIPTIONS
@@ -34,6 +38,7 @@ subscriptions model =
     [ returnReportFromJS LoadSlideMenu
     , returnGaugeFromJS LoadGauges
     , returnGaugeGetValues GetGaugeValues
+    , returnLoginEncryptedString LogIn
     ]
 
 

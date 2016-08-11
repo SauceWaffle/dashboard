@@ -21,12 +21,12 @@ styles = {
       , ("width", "100%")
       ]
 
-  , user =
+  , password =
     style
-      [ ("font-size", "1em")
-      , ("height", "50px")
-      , ("line-height", "50px")
-      ]
+    [ ("-webkit-text-security", "disc")
+    , ("-moz-text-security", "disc")
+    , ("text-security", "disc")
+    ]
 
   , searchMap =
     style

@@ -21,3 +21,17 @@ getReportMenuFromApi =
 getGaugeDataFromApi : String
 getGaugeDataFromApi =
   "http://api.qualedyn.local/sqlutils_supplydashboard.aspx?query=getGaugeValues_test"
+
+
+
+loginApi : String
+loginApi =
+  "http://api.qualedyn.local/activedirectory_login.aspx?login="
+
+loginKey : String
+loginKey =
+  "jimisthegreatest"
+
+loginIV : String
+loginIV =
+  "d2hhdCBpcyB0X4Na"

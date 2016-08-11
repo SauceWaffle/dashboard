@@ -5,12 +5,14 @@ import Models exposing (..)
 import Components.Reports.Update exposing (getReportMenuItems)
 import Components.Supply.Gauge.Update exposing (getGaugeData)
 import Components.Supply.Gauge.Models exposing (..)
+import Components.Login.Update exposing (attemptLogin)
 
 import Navigation
 import Hop exposing (makeUrl, matchUrl, makeUrlFromLocation)
 import Hop.Types exposing (Location, Query)
 import Routing.Config exposing (..)
 import Routing.Utils exposing (..)
+import Keys exposing (..)
 
 -- ROUTING
 navigationCmd : String -> Cmd a
@@ -30,15 +32,20 @@ urlUpdate ( route, location ) model =
 
 -- PORTS
 port isPageReady : String -> Cmd msg
+
+
 port returnReportFromJS : (String -> msg) -> Sub msg
-port startup : String -> Cmd msg
-port hi : String -> Cmd msg
+port jsLoadSlideMenu : String -> Cmd msg
+port jsClearSlideMenu : String -> Cmd msg
+
+port getEncryptedString : List String -> Cmd msg
 
 port loadSupplyGauges : Gauges -> Cmd msg
 port startGaugeWatcher : String -> Cmd msg
 port stopGaugeWatcher : String -> Cmd msg
 port returnGaugeGetValues : (String -> msg) -> Sub msg
 port returnGaugeFromJS : (String -> msg) -> Sub msg
+port returnLoginEncryptedString : (String -> msg) -> Sub msg
 
 -- FUNCTIONS
 
@@ -49,20 +56,41 @@ port returnGaugeFromJS : (String -> msg) -> Sub msg
 update : Msg -> Model -> (Model, Cmd Msg)
 update msg model =
     case msg of
-      SwitchView ->
-        (model, Cmd.none)
 
       CommitRow ->
         (model, Cmd.none)
 
-      LogIn ->
-        ({model | loggedIn = True}, Cmd.none)
+
+      SetLoginUser user ->
+        ({model | username = user}, Cmd.none)
+
+      SetLoginPass pass ->
+        ({model | password = pass}, Cmd.none)
+
+
+      EncryptLogin encStr ->
+        ({model | username = "", password = ""}, getEncryptedString [encStr,loginKey,loginIV])
+
+      LogIn encStr ->
+        (model, attemptLogin encStr)
+
+      LoginSuccess login ->
+        case model.route of
+          ReportRoute rpt -> ({model | loginData = login, loggedIn = True}, (getReportMenuItems {model | loginData = login, loggedIn = True}))
+          _ -> ({model | loginData = login, loggedIn = True}, Cmd.none)
+
+      LoginFail _ ->
+        ({model | loggedIn = False, loginData = {firstName = "", groups = [], lastName = "", userId = ""} }, Cmd.none)
 
       LogOut ->
-        ({model | loggedIn = False}, Cmd.none)
+        let
+          logout = {firstName = "", groups = [], lastName = "", userId = ""}
+        in
+          case model.route of
+            ReportRoute rpt -> ({model | loginData = logout, loggedIn = False, slideMenuInit = False}, Cmd.none )--(jsClearSlideMenu "clearReport") )
+            _ -> ({model | loginData = logout, loggedIn = False}, Cmd.none)
 
-      Hello whatToSay ->
-        (model, hi whatToSay)
+
 
       RouteError ->
         (model, Cmd.none)
@@ -72,14 +100,16 @@ update msg model =
           path = Routing.Utils.reverse (route)
         in
           case route of
-            ReportRoute rpt -> (model, Cmd.batch [ (navigationCmd path), getReportMenuItems, (stopGaugeWatcher "gauge") ] )
-            SupplyDashRoute -> (model, Cmd.batch [ (navigationCmd path), getGaugeData ] )
+            ReportRoute rpt -> (model, Cmd.batch [ (navigationCmd path), (getReportMenuItems model), (stopGaugeWatcher "gauge") ] )
+            SupplyDashRoute -> ({model | slideMenuInit = False}, Cmd.batch [ (navigationCmd path), getGaugeData ] )
             _ -> ({model | slideMenuInit = False}, Cmd.batch [ (navigationCmd path), (stopGaugeWatcher "gauge") ])
 
       LoadSlideMenu message ->
         case model.route of
           ReportRoute rpt -> case model.slideMenuInit of
-                              False -> ({model | slideMenuInit = True }, startup message )
+                              False -> case model.loggedIn of
+                                        True -> ({model | slideMenuInit = True }, jsLoadSlideMenu message )
+                                        _ -> (model, Cmd.none)
                               True -> (model, Cmd.none)
           _ -> (model, Cmd.none)
 

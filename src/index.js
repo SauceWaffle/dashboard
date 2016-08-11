@@ -30,10 +30,10 @@ window.app = Elm.Main.embed( document.getElementById('main') );
 
 require( './Components/Supply/Gauge/Gauge.js' )
 require( './Components/Reports/slidemenu.js' )
+require( './Components/Login/Login.js' )
 
-window.app.ports.hi.subscribe(function(incoming) {
-  alert(incoming);
-})
+
+
 
 window.app.ports.startGaugeWatcher.subscribe(function(incoming) {
   if (!window.gaugeWatcher)

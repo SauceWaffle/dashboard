@@ -8,9 +8,13 @@ import Models exposing (..)
 import Messages exposing (..)
 import Keys exposing (getReportMenuFromApi)
 
-getReportMenuItems : Cmd Msg
-getReportMenuItems =
-  Task.perform SlideMenuItemsFail SlideMenuItemsSuccess (Http.get (decodeAllMenus) getReportMenuFromApi)
+getReportMenuItems : Model -> Cmd Msg
+getReportMenuItems model =
+  let
+    userName = model.loginData.userId
+    userGroups = List.map (\g -> g.name) model.loginData.groups
+  in
+    Task.perform SlideMenuItemsFail SlideMenuItemsSuccess (Http.get (decodeAllMenus) (getReportMenuFromApi ++ "&user=" ++ userName ++ "&groups=" ++ (toString userGroups) ) )
 
 
 decodeAllMenus : Json.Decoder (List ReportMenu)

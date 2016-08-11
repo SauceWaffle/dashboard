@@ -1,8 +1,12 @@
 
 
+window.app.ports.jsClearSlideMenu.subscribe(function() {
+	var menuEl = document.getElementById('menuDiv')
+	menuEl.innerHTML = ""
+})
 
 
-window.app.ports.startup.subscribe(function () {
+window.app.ports.jsLoadSlideMenu.subscribe(function () {
 
 
 		MLMenu.prototype.options = {

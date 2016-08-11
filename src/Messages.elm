@@ -1,15 +1,21 @@
 module Messages exposing (..)
 
-import Models exposing (Route)
+import Models exposing (Route, Login)
 import Components.Supply.Gauge.Models exposing (..)
 import Http
 
 type Msg
-  = SwitchView
-  | CommitRow
-  | LogIn
+  = CommitRow
+
+  | SetLoginUser String
+  | SetLoginPass String
+
+  | EncryptLogin String
+  | LogIn String
+  | LoginSuccess Login
+  | LoginFail Http.Error
   | LogOut
-  | Hello String
+  
   | RouteError
   | RouteTo Route
   | LoadSlideMenu String

@@ -13,15 +13,20 @@ reportsView rpt model =
   let
     menus = List.map (\m -> reportMenu m) model.slideMenuData
   in
-    div [ class "container" ]
-    [ button [ classList [("action", True), ("action--open", True) ], attribute "aria-label" "Open Menu" ] [ span [ classList [("icon", True), ("icon--menu", True) ] ] [] ]
-    , nav [ id "ml-menu", class "side-menu" ]
-      [ button [ classList [("action", True), ("action--close", True) ], attribute "aria-label" "Close Menu" ] [ span [ classList [("icon", True), ("icon--cross", True) ] ] [] ]
-      , div [ class "menu__wrap" ]
-      menus
-      ]
-    , iframe [ class "content" ] []
-    ]
+    case model.loggedIn of
+      True ->
+        div [ class "container" ]
+        [ button [ classList [("action", True), ("action--open", True) ], attribute "aria-label" "Open Menu" ] [ span [ classList [("icon", True), ("icon--menu", True) ] ] [] ]
+        , nav [ id "ml-menu", class "side-menu" ]
+          [ button [ classList [("action", True), ("action--close", True) ], attribute "aria-label" "Close Menu" ] [ span [ classList [("icon", True), ("icon--cross", True) ] ] [] ]
+          , div [ id "menuDiv", class "menu__wrap" ]
+          menus
+          ]
+        , iframe [ class "content" ] []
+        ]
+      False ->
+        div []
+        [ text "Must Be Logged In To View Reports" ]
 
 
 reportsDash : Models.Model -> Html Messages.Msg
