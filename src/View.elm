@@ -8,9 +8,9 @@ import Messages exposing (..)
 
 import Components.Supply.Gauge.View exposing (..)
 import Components.Header.View exposing (topheader)
-import Components.Menu.View exposing (menus, menuBar)
+import Components.Menu.View exposing (menuBar)
 import Components.Reports.View exposing (reportsView)
-import Components.ITRequests.View exposing (itRequestsView)
+import Components.ItRequests.View exposing (itRequestsView)
 import Components.Login.View exposing (loginView)
 import Components.User.View exposing (userView)
 
@@ -19,7 +19,7 @@ import Components.User.View exposing (userView)
 view : Models.Model -> Html Messages.Msg
 view model =
   let
-    startMenu = menus
+    startMenu = model.pageMenu
   in
     div [ id "fullPage" ]
     [ topheader model
@@ -37,5 +37,5 @@ view model =
 homeView : Models.Model -> Html Messages.Msg
 homeView model =
   div []
-  [ text "hi" 
+  [ text (toString model)
   ]

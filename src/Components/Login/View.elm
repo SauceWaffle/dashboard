@@ -45,7 +45,7 @@ loginDropDown model =
     [ li [] [ span [] [ text "Username" ] ]
     , li [] [ input [ onInput SetLoginUser ] [] ]
     , li [] [ span [] [ text "Password" ] ]
-    , li [] [ input [ styles.password, onInput SetLoginPass ] [] ]
+    , li [] [ input [ type' "password", onInput SetLoginPass ] [] ]
     , li [ style [("text-align", "center")] ] [ button [ onClick (EncryptLogin (model.username ++ "|" ++ model.password)) ] [ text "Log In" ] ]
     ]
   ]

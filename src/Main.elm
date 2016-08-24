@@ -8,6 +8,7 @@ import Update exposing (..)
 import Components.Reports.Update exposing (getReportMenuItems)
 import Components.Supply.Gauge.Update exposing (getGaugeData)
 import View exposing (view)
+import Keys exposing (loginKey,loginIV)
 
 import Navigation
 import Hop.Types exposing (Router)
@@ -25,9 +26,12 @@ init ( route, location )=
               _ -> initModel HomeRoute { path = [], query = Dict.empty }
   in
     case route of
-      ReportRoute rpt -> (model, Cmd.batch [ (navigationCmd path), (getReportMenuItems model) ] )
-      SupplyDashRoute -> (model, Cmd.batch [ (navigationCmd path), getGaugeData ] )
-      _ -> (model, (navigationCmd path) )
+      ReportRoute rpt ->
+        case model.loggedIn of
+          True -> (model, Cmd.batch [ (navigationCmd path), (getReportMenuItems model) ] )
+          False -> (model, Cmd.batch [ (navigationCmd path), (getEncryptedString ["",loginKey,loginIV])  ])
+      SupplyDashRoute -> (model, Cmd.batch [ (navigationCmd path), getGaugeData, (getEncryptedString ["",loginKey,loginIV])  ] )
+      _ -> (model, Cmd.batch [ (navigationCmd path), (getEncryptedString ["",loginKey,loginIV]) ])
 
 
 -- SUBSCRIPTIONS
@@ -45,9 +49,9 @@ subscriptions model =
 main : Program Never
 main =
   Navigation.program urlParser
-    { init = init
-    , view = view
+    { view = view
     , update = update
     , urlUpdate = urlUpdate
     , subscriptions = subscriptions
+    , init = init
     }

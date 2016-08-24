@@ -2,6 +2,7 @@ module Models exposing (..)
 
 import Hop.Types exposing (Location)
 import Components.Supply.Gauge.Models exposing (..)
+import Components.ItRequests.Models exposing (..)
 
 type alias Login =
   { firstName : String
@@ -14,11 +15,13 @@ type alias LoginGroup =
   { name : String
   }
 
+
 type alias Menu =
   { name : String
   , link : Route
   , subMenus : List String
   }
+
 
 type alias ReportMenu =
   { items : List ReportMenuItem
@@ -49,6 +52,10 @@ type alias Model =
   , password : String
   , route : Route
   , routeLocation : Location
+  , pageMenu : List Menu
+  , itRequests : List ItRequest
+  , selectedRequest : Int
+  , selectedRequestData : ItRequest
   , slideMenuInit : Bool
   , slideMenuData : List ReportMenu
   , supplyGauges : Gauges
@@ -63,7 +70,20 @@ initModel route location =
   , password = ""
   , route = route
   , routeLocation = location
+  , pageMenu = newPageMenu
+  , itRequests = [emptyItRequest]
+  , selectedRequest = 0
+  , selectedRequestData = emptyItRequest
   , slideMenuInit = False
   , slideMenuData = [{items = [{fullPath="",name="",menuOrItem="",subMenuName=""}], menuName = ""}]
   , supplyGauges = theGauges
   }
+
+
+newPageMenu : List Menu
+newPageMenu =
+  [{ name = "Home", link = HomeRoute, subMenus = [] }
+  ,{ name = "My Tasks", link = ITRequestsRoute, subMenus = [] }
+  ,{ name = "Supply Chain", link = SupplyDashRoute, subMenus = [] }
+  ,{ name = "Reports", link = (ReportRoute "home"), subMenus = [] }
+  ]

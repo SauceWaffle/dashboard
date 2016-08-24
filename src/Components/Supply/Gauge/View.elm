@@ -16,7 +16,7 @@ gaugeView model =
   let
     gauges = List.map (\g -> costGauge g) model.supplyGauges
   in
-    div []
+    div [ class "gauge-view-full" ]
     [ ul [ styles.gauges ] gauges
     ]
 

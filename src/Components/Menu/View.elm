@@ -8,20 +8,12 @@ import Messages exposing (..)
 
 
 
-menus : List Menu
-menus =
-  [{ name = "Home", link = HomeRoute, subMenus = [] }
-  ,{ name = "IT Requests", link = ITRequestsRoute, subMenus = [] }
-  ,{ name = "Supply Chain", link = SupplyDashRoute, subMenus = [] }
-  ,{ name = "Reports", link = (ReportRoute "home"), subMenus = [ "IT", "Material", "Stockroom" ] }
-  ]
-
 -- VIEW
 
 menuBar : App.Model -> List Menu -> Html Messages.Msg
 menuBar model menus =
   let
-    menu = List.map (\m -> menuItem model m) menus
+    menu = List.map (\m -> menuItem model m) model.pageMenu
   in
   div []
   [

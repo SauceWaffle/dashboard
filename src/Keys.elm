@@ -1,26 +1,18 @@
 module Keys exposing (..)
 
-type alias Center =
-  { lat : Float
-  , lng : Float
-  }
 
-gmapsKey : String
-gmapsKey =
-  "AIzaSyDXeeuxb1vyD__b-jT4FX_sAbYcvUNXxSw"
-
-gmapsCenter : Center
-gmapsCenter =
-  { lat = 41.583768, lng = -81.4114034 }
+getPageMenuFromApi : String
+getPageMenuFromApi =
+  "http://api.qualedyn.local/ssrs_api.aspx?query=getMyReportsMenu"
 
 getReportMenuFromApi : String
 getReportMenuFromApi =
-  "http://8F128793C.qualedyn.local/ssrs_api.aspx?query=getMyReportMenu"
+  "http://api.qualedyn.local/ssrs_api.aspx?query=getMyReports"
 
 
 getGaugeDataFromApi : String
 getGaugeDataFromApi =
-  "http://api.qualedyn.local/sqlutils_supplydashboard.aspx?query=getGaugeValues_test"
+  "http://api.qualedyn.local/sqlutils_supplydashboard.aspx?query=getGaugeValues_new"
 
 
 
@@ -35,3 +27,9 @@ loginKey =
 loginIV : String
 loginIV =
   "d2hhdCBpcyB0X4Na"
+
+
+
+getItRequestsFromApi : String -> String
+getItRequestsFromApi query =
+  "http://8F128793C.qualedyn.local/sqlutils.aspx?query=" ++ query

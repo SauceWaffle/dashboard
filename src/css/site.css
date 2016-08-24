@@ -1,3 +1,10 @@
+
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+
+
 #fullPage {
   position: absolute;
   top: 0;
@@ -8,7 +15,9 @@
   background: linear-gradient(to bottom, rgba(255,255,255,.5) 0%, rgba(255,255,255,.5) 100%), url('../content/QED_Vector.svg') no-repeat;
   background-size: 1024px 1024px;
   background-attachment: fixed;
-
+  -webkit-padding-start: 0;
+  -moz-padding-start: 0;
+  padding: 0;
 }
 
 
@@ -49,6 +58,7 @@
 
 #loginMenu ul {
   margin: 0;
+  padding: 0;
   list-style: none;
 
   -webkit-padding-start: 0;
@@ -77,6 +87,7 @@
   background-color: #ABC;
   color: #FFF;
   height: 30px;
+  line-height: 30px;
   width: 75px;
   border: none;
   font-size: 14px;
@@ -181,7 +192,183 @@ nav.header-menu ul li ul li {
   color: #31909E;
 }
 
-.material-icons.md-18 { font-size: 18px; }
-.material-icons.md-24 { font-size: 24px; }
-.material-icons.md-36 { font-size: 36px; }
-.material-icons.md-48 { font-size: 48px; }
+
+
+
+
+
+.requests-header {
+  height: 30px;
+}
+
+.requests-footer {
+  height: 30px;
+}
+
+.requests-not-logged-in {
+  height: calc(100vh - 150px);
+  width: calc(100vw - 10px);
+  min-width: 950px;
+  margin: 0;
+  -webkit-padding-start: 0;
+
+  line-height: calc(100vh - 190px);
+  font-size: 48px;
+  text-align: center;
+}
+
+.requests-table-header {
+  display: table;
+  height: 40px;
+  width: calc(100vw - 10px);
+  min-width: 950px;
+  margin: 0;
+  -webkit-padding-start: 0;
+  margin-left: 5px;
+  padding: 0;
+  text-align: center;
+}
+
+.requests-table-header li {
+  display: table-cell;
+
+  height: 40px;
+  line-height: 40px;
+  background-color: #222;
+  list-style: none;
+}
+
+
+.requests-table-lines {
+  height: calc(100vh - 220px);
+  width: calc(100vw - 10px);
+  max-height: 445px;
+  min-width: 950px;
+  margin: 0;
+  padding: 0;
+  -webkit-padding-start: 0;
+  margin-left: 5px;
+
+  color: #000;
+
+  overflow-y: auto;
+}
+
+.requests-table-lines li {
+  position: relative;
+  list-style: none;
+
+  min-height: 30px;
+}
+
+
+.requests-table-lines .full-request-line {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.requests-table-lines .full-request-line:hover {
+  background-color: rgba(200,200,200,0.7);
+}
+
+.selected-request-line {
+  background-color: rgba(165, 200, 255, 0.7);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+
+.requests-table-lines li:hover .requests-toolbar {
+  visibility: visible;
+}
+
+.requests-table-lines li:hover div {
+  visibility: visible;
+}
+
+.requests-toolbar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 150px;
+  height: calc(100% - 4px);
+  margin: 2px;
+  text-align: right;
+  visibility: hidden;
+
+  background: rgba(255,255,255,1);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(255,255,255,0)), color-stop(0.25, rgba(255,255,255,1)), to(rgba(255,255,255,1)));
+  background: -webkit-linear-gradient(left, rgba(255,255,255,0), rgba(255,255,255,1), rgba(255,255,255,1), rgba(255,255,255,1));
+  background: -moz-linear-gradient(left, rgba(255,255,255,0), rgba(255,255,255,1), rgba(255,255,255,1), rgba(255,255,255,1));
+  background: -ms-linear-gradient(left, rgba(255,255,255,0), rgba(255,255,255,1), rgba(255,255,255,1), rgba(255,255,255,1));
+}
+
+.requests-toolbar i {
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.requests-toolbar i:hover {
+  color: #A53;
+}
+
+
+.itrequest {
+  display: table;
+  width: calc(100vw - 10px);
+  min-width: 950px;
+  margin: 0;
+  -webkit-padding-start: 0;
+  padding: 0;
+
+  text-align: center;
+}
+
+.itrequest li {
+  display: table-cell;
+  height: 30px;
+
+  color: #000;
+  list-style: none;
+  border: 1px solid #000;
+  cursor: pointer;
+}
+
+.itrequest-due {
+  width: 10%;
+}
+
+.itrequest-priority {
+  width: 7%;
+}
+
+.itrequest-age {
+  width: 6%;
+}
+
+.itrequest-assign {
+  width: 15%;
+}
+
+.itrequest-desc {
+  width: 62%;
+  text-align: left;
+  padding-left: 3px;
+}
+
+
+.requests-details {
+  height: 88px;
+  border: 1px solid black;
+}
+
+
+
+
+
+
+
+
+
+.gauge-view-full {
+  height: calc(100vh - 90px);
+  overflow: auto;
+}
