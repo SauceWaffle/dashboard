@@ -1,6 +1,7 @@
 module Main exposing (..)
 
 import Dict
+import Time exposing (..)
 
 import Messages exposing (..)
 import Models exposing (..)
@@ -43,6 +44,11 @@ subscriptions model =
     , returnGaugeFromJS LoadGauges
     , returnGaugeGetValues GetGaugeValues
     , returnLoginEncryptedString LogIn
+    , returnAddNoteValueFromJS ActuallyAddRequestNote
+    , returnNewRequestFromJS LoadDueOnDatePicker
+    , returnNewRequestDueOnFromJS SetNewRequestDue
+    , returnRequestNotesFromJS RequestNotesAreReady
+    , Time.every second TimeChanged
     ]
 
 

@@ -31,7 +31,7 @@ window.app = Elm.Main.embed( document.getElementById('main') );
 require( './Components/Supply/Gauge/Gauge.js' )
 require( './Components/Reports/slidemenu.js' )
 require( './Components/Login/Login.js' )
-
+require( './Components/ItRequests/ItRequests.js' )
 
 
 
@@ -51,5 +51,7 @@ window.app.ports.isPageReady.subscribe(function(incoming) {
   switch (incoming) {
     case "report": setTimeout(function(){window.app.ports.returnReportFromJS.send(incoming)},250); break;
     case "gauge":  setTimeout(function(){window.app.ports.returnGaugeFromJS.send(incoming)},250); break;
+    case "requestNotes":  setTimeout(function(){window.app.ports.returnRequestNotesFromJS.send(incoming)},250); break;
+    case "newRequest": setTimeout(function(){window.app.ports.returnNewRequestFromJS.send(incoming)},250); break;
   }
 })

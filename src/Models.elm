@@ -1,5 +1,6 @@
 module Models exposing (..)
 
+import Time
 import Hop.Types exposing (Location)
 import Components.Supply.Gauge.Models exposing (..)
 import Components.ItRequests.Models exposing (..)
@@ -46,7 +47,8 @@ type Route
 
 
 type alias Model =
-  { loggedIn : Bool
+  { rightNow : Time.Time
+  , loggedIn : Bool
   , loginData : Login
   , username : String
   , password : String
@@ -54,6 +56,9 @@ type alias Model =
   , routeLocation : Location
   , pageMenu : List Menu
   , itRequests : List ItRequest
+  , addRequestData : ItRequest
+  , addRequestOpen : Bool
+  , addNoteOpen : Bool
   , selectedRequest : Int
   , selectedRequestData : ItRequest
   , slideMenuInit : Bool
@@ -64,7 +69,8 @@ type alias Model =
 
 initModel : Route -> Hop.Types.Location -> Model
 initModel route location =
-  { loggedIn = False
+  { rightNow = 0
+  , loggedIn = False
   , loginData = {firstName = "", groups = [], lastName = "", userId = ""}
   , username = ""
   , password = ""
@@ -72,6 +78,9 @@ initModel route location =
   , routeLocation = location
   , pageMenu = newPageMenu
   , itRequests = [emptyItRequest]
+  , addRequestData = emptyItRequest
+  , addRequestOpen = False
+  , addNoteOpen = False
   , selectedRequest = 0
   , selectedRequestData = emptyItRequest
   , slideMenuInit = False

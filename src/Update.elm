@@ -7,7 +7,7 @@ import Components.Supply.Gauge.Update exposing (getGaugeData)
 import Components.Supply.Gauge.Models exposing (..)
 import Components.Login.Update exposing (attemptLogin)
 import Components.Menu.Update exposing (getPageMenuItems)
-import Components.ItRequests.Update exposing (getMyItRequests)
+import Components.ItRequests.Update exposing (getMyItRequests, addRequest, delRequest, addNoteToRequest, delNoteFromRequest)
 import Components.ItRequests.Models exposing (emptyItRequest)
 
 import Navigation
@@ -36,13 +36,14 @@ urlUpdate ( route, location ) model =
 -- PORTS
 port isPageReady : String -> Cmd msg
 
+port getEncryptedString : List String -> Cmd msg
+port clearLoginCookie : String -> Cmd msg
+
 
 port returnReportFromJS : (String -> msg) -> Sub msg
 port jsLoadSlideMenu : String -> Cmd msg
 port jsClearSlideMenu : String -> Cmd msg
 
-port getEncryptedString : List String -> Cmd msg
-port clearLoginCookie : String -> Cmd msg
 
 port loadSupplyGauges : Gauges -> Cmd msg
 port startGaugeWatcher : String -> Cmd msg
@@ -50,6 +51,17 @@ port stopGaugeWatcher : String -> Cmd msg
 port returnGaugeGetValues : (String -> msg) -> Sub msg
 port returnGaugeFromJS : (String -> msg) -> Sub msg
 port returnLoginEncryptedString : (String -> msg) -> Sub msg
+
+
+port returnNewRequestFromJS : (String -> msg) -> Sub msg
+port initializeNewRequestDatePicker : String -> Cmd msg
+port returnNewRequestDueOnFromJS : (String -> msg) -> Sub msg
+port getNewRequestDueOnFromJS : String -> Cmd msg
+port getAddNoteValueFromJS : String -> Cmd msg
+port returnAddNoteValueFromJS : (String -> msg) -> Sub msg
+port returnRequestNotesFromJS : (String -> msg) -> Sub msg
+port setRequestNoteSizes : String -> Cmd msg
+
 
 -- FUNCTIONS
 
@@ -66,6 +78,9 @@ update msg model =
 
       CommitRow ->
         (model, Cmd.none)
+
+      TimeChanged rightnow ->
+        ({model | rightNow = rightnow}, Cmd.none)
 
 
       SetLoginUser user ->
@@ -115,7 +130,7 @@ update msg model =
                 True -> (model, Cmd.batch [ (navigationCmd path), (getReportMenuItems model), (stopGaugeWatcher "gauge") ] )
                 False -> (model, Cmd.batch [ (navigationCmd path), (stopGaugeWatcher "gauge") ] )
             SupplyDashRoute -> ({model | slideMenuInit = False}, Cmd.batch [ (navigationCmd path), getGaugeData ] )
-            ITRequestsRoute -> (model, Cmd.batch [ (navigationCmd path), (getMyItRequests model), (stopGaugeWatcher "gauge") ])
+            ITRequestsRoute -> ({model | addRequestOpen = False, addNoteOpen = False}, Cmd.batch [ (navigationCmd path), (getMyItRequests model), (stopGaugeWatcher "gauge") ])
             _ -> ({model | slideMenuInit = False}, Cmd.batch [ (navigationCmd path), (stopGaugeWatcher "gauge") ])
 
 
@@ -140,7 +155,12 @@ update msg model =
 
 
       ItRequestsSuccess requests ->
-        ({model | itRequests = requests }, Cmd.none)
+        let
+          selected =  case List.filter ( \r -> (r.id == model.selectedRequest) ) requests of
+                        x :: xs -> x
+                        [] -> emptyItRequest
+        in
+          ({model | itRequests = requests, selectedRequestData = selected }, Cmd.none )
 
       ItRequestsFail _ ->
         (model, Cmd.none)
@@ -151,9 +171,89 @@ update msg model =
                         x :: xs -> x
                         [] -> emptyItRequest
         in
-          ({model | selectedRequest = selectedId, selectedRequestData = selected}, Cmd.none)
+          ({model | selectedRequest = selectedId, selectedRequestData = selected}, isPageReady "requestNotes" )
+
+      OpenAddRequest ->
+        ({model | addRequestOpen = True, addRequestData = emptyItRequest}, isPageReady "newRequest")
+
+      CloseAddRequest ->
+        ({model | addRequestOpen = False}, Cmd.none)
+
+      LoadDueOnDatePicker _ ->
+        (model, initializeNewRequestDatePicker "")
+
+      NewRequestDueOnChanged ->
+        (model, getNewRequestDueOnFromJS "")
+
+      AddRequest ->
+        (model, addRequest model)
+
+      AddRequestSuccess yesOrNo ->
+        ({model | addRequestOpen = False}, (getMyItRequests model) )
+
+      AddRequestFail _ ->
+        (model, Cmd.none)
+
+      DeleteRequest reqId ->
+        (model, delRequest reqId)
+
+      DeleteRequestSuccess yesOrNo ->
+        (model, (getMyItRequests model) )
+
+      DeleteRequestFail _ ->
+        (model, Cmd.none)
+
+      SetNewRequestDue due ->
+        let
+          curData = model.addRequestData
+          newData = {curData | dueOn = due}
+        in
+          ({model | addRequestData = newData}, Cmd.none)
+
+      SetNewRequestPriority prio ->
+        let
+          curData = model.addRequestData
+          newData = {curData | priority = prio}
+        in
+          ({model | addRequestData = newData}, Cmd.none)
+
+      SetNewRequestDescription desc ->
+        let
+          curData = model.addRequestData
+          newData = {curData | description = desc}
+        in
+          ({model | addRequestData = newData}, Cmd.none)
 
 
+      RequestNotesAreReady _ ->
+        (model, setRequestNoteSizes "" )
+
+      OpenAddNote ->
+        ({model | addNoteOpen = True}, Cmd.none)
+
+      CloseAddNote ->
+        ({model | addNoteOpen = False}, Cmd.none)
+
+      AddRequestNote ->
+        (model, getAddNoteValueFromJS "note")
+
+      ActuallyAddRequestNote note ->
+        (model, addNoteToRequest model note)
+
+      AddRequestNoteSuccess yesOrNo ->
+        ({model | addNoteOpen = False}, (getMyItRequests model) )
+
+      AddRequestNoteFail _ ->
+        (model, Cmd.none)
+
+      DeleteRequestNote noteId ->
+        (model, delNoteFromRequest noteId)
+
+      DeleteRequestNoteSuccess yesOrNo ->
+        (model, (getMyItRequests model) )
+
+      DeleteRequestNoteFail _ ->
+        (model, Cmd.none)
 
 
 

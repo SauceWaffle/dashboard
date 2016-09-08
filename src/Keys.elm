@@ -33,3 +33,20 @@ loginIV =
 getItRequestsFromApi : String -> String
 getItRequestsFromApi query =
   "http://8F128793C.qualedyn.local/sqlutils.aspx?query=" ++ query
+
+addItRequest : String -> String
+addItRequest query =
+  "http://8F128793C.qualedyn.local/sqlutils.aspx?query=" ++ query
+
+deleteItRequest : String -> String
+deleteItRequest reqId =
+  "http://8F128793C.qualedyn.local/sqlutils.aspx?query=closeRequest&request=" ++ reqId
+
+
+saveItRequestNote : String -> String
+saveItRequestNote query =
+  "http://8F128793C.qualedyn.local/sqlutils.aspx?query=" ++ query
+
+deleteItRequestNote : String -> String
+deleteItRequestNote noteId =
+  "http://8F128793C.qualedyn.local/sqlutils.aspx?query=delNote&noteId=" ++ noteId
