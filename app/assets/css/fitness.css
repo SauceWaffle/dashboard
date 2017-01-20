@@ -1,0 +1,537 @@
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+
+.fitness-full-page {
+  position: relative;
+  height: calc(100% - 90px);
+  width: 100%;
+  min-width: 1050px;
+
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  color: #0F109E;
+
+  /*background: url('../img/run.png') bottom left no-repeat;*/
+  /*background-size: 25%;*/
+  /*background-attachment: fixed;*/
+
+}
+
+
+.fitness-page-header {
+  position: relative;
+  float: left;
+  top: 20px;
+  left: 10px;
+  height: calc(100% - 40px);
+  min-height: 600px;
+  width: 230px;
+
+  border: 2px solid #666;
+  box-shadow: 5px 5px 5px #333;
+  background: rgba(240,240,240,0.7);
+}
+
+.fitness-user {
+  position: relative;
+  width: 100%;
+  height: 30%;
+  margin: 0;
+}
+
+.fitness-user-header {
+  text-align: center;
+  padding: 10px 2px;
+  font-size: 1.2em;
+  font-weight: 600;
+
+  border-bottom: 2px solid #0F109E;
+}
+
+/*
+.fitness-user-login-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.fitness-user-login-menu li {
+  width: 100%;
+  margin: 5px 0;
+  text-align: center;
+}
+
+.fitness-user-login-menu .login-label {
+  background: rgba(15, 16, 126,0.8);
+  width: 96%;
+  height: 25px;
+  margin: auto;
+
+  line-height: 25px;
+  font-size: 1.3em;
+
+  color: white;
+}
+
+.fitness-user-login-menu li input {
+  width: 96%;
+  height: 40px;
+  margin: auto;
+  padding-left: 8px;
+
+  font-size: 1.2em;
+  font-family: sans-serif;
+  border: 1px solid #0F109E;
+}
+
+.fitness-user-login-menu li button {
+  border: 1px solid #0F109E;
+}
+
+
+
+.fitness-user-logout-menu {
+  text-align: center;
+}
+
+.fitness-user-logout-menu button {
+  border: 1px solid #0F109E;
+}
+*/
+
+.fitness-user-status {
+  text-align: center;
+  padding: 10px 2px;
+  font-size: 1em;
+}
+
+.fitness-user-status-name {
+    font-size: 1.4em;
+}
+
+
+
+.fitness-header-toggle {
+  position: relative;
+  height: 10%;
+  width: 96%;
+  margin: auto;
+}
+
+.fitness-show-leaders-button {
+  width: 46%;
+  margin-left: 2%;
+  padding: 0;
+  background: rgba(15, 16, 126, 1);
+}
+
+.fitness-show-calendar-button {
+  width: 46%;
+  padding: 0;
+  background: rgba(15, 16, 126, 1);
+}
+
+
+
+
+
+.fitness-my-statistics {
+  position: relative;
+  height: 40%;
+  width: 90%;
+  margin: auto;
+
+  text-align: center;
+  border: 1px solid #0F109E;
+}
+
+.fitness-my-statistics-group {
+  margin: 2% 0;
+}
+
+.fitness-my-statistics-label {
+  font-size: 1.9em;
+}
+
+.fitness-my-statistics-value {
+  font-size: 1.6em;
+  font-weight: 800;
+}
+
+.fitness-my-statistics-uom {
+  font-size: 0.8em;
+  font-weight: 500;
+}
+
+
+
+
+
+
+.fitness-save-changes {
+  position: absolute;
+  bottom: 5px;
+  left: 3px;
+  width: 98%;
+  height: 15%;
+
+  text-align: center;
+}
+
+.fitness-save-changes button {
+  height: 4em;
+  background: rgba(15, 16, 126, 1);
+}
+
+
+
+
+.fitness-my-activities-view {
+  position: relative;
+  top: 20px;
+  left: 30px;
+  height: calc(100% - 40px);
+  min-height: 600px;
+  width: calc(100vw - 280px);
+  border: 2px solid #666;
+  box-shadow: 5px 5px 5px #333;
+  background: rgba(240,240,240,0.7);
+  overflow: auto;
+}
+
+.fitness-my-activities-saving-status-bar {
+    height: 35px;
+    margin: 0;
+    padding: 5px;
+    text-align: center;
+    font-size: 1.3em;
+
+    background: none; /*url('../img/loading.gif');*/
+
+
+}
+
+@keyframes goodflash {
+  0% {
+    opacity: 0.0;
+  }
+  50% {
+    opacity: 1.0;
+  }
+  100% {
+    opacity: 0.0;
+  }
+}
+
+.fitness-my-activities-saving-status-bar.fitness-saving-ok {
+  animation-name: goodflash;
+  animation-timing-function: ease-in-out;
+  animation-duration: 3s;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+
+  background: -webkit-linear-gradient(left, #F0F0F0, #F0F0F0, #292, #292, #F0F0F0, #F0F0F0);
+  background: -moz-linear-gradient(left, #F0F0F0, #F0F0F0, #292, #292, #F0F0F0, #F0F0F0);
+  background: linear-gradient(left, #F0F0F0, #F0F0F0, #292, #292, #F0F0F0, #F0F0F0);
+  color: #FFF;
+  opacity: 0.0;
+}
+
+
+@keyframes badflash {
+  0% {
+    opacity: 0.0;
+  }
+  25% {
+    opacity: 1.0;
+  }
+  75% {
+    opacity: 1.0;
+  }
+  100% {
+    opacity: 0.0;
+  }
+}
+
+.fitness-my-activities-saving-status-bar.fitness-saving-error {
+  animation-name: badflash;
+  animation-timing-function: ease-in-out;
+  animation-duration: 3s;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+
+  background: -webkit-linear-gradient(left, #F0F0F0, #F0F0F0, #F66, #F66, #F0F0F0, #F0F0F0);
+  background: -moz-linear-gradient(left, #F0F0F0, #F0F0F0, #F66, #F66, #F0F0F0, #F0F0F0);
+  background: linear-gradient(left, #F0F0F0, #F0F0F0, #F66, #F66, #F0F0F0, #F0F0F0);
+
+  color: #FFF;
+  opacity: 0.0;
+}
+
+.fitness-my-activities-saving-status-bar.fitness-saving {
+
+}
+
+
+
+
+
+
+
+
+.fitness-my-activities {
+  position: relative;
+  width: 90%;
+  height: calc(100% - 40px);
+  margin: 2px auto;
+
+  max-height: 650px;
+  min-height: 450px;
+  max-width: 900px;
+  min-width: 625px;
+}
+
+.fitness-my-activities-saving {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  background: rgba(255,255,255,1);
+  opacity: 0.8;
+}
+
+.fitness-my-activities-saving img {
+  opacity: 90%;
+}
+
+.fitness-my-activities-calendar-header {
+  position: relative;
+  height: 12%;
+  text-align: center;
+  margin: 0 2%;
+}
+
+.fitness-my-activities-calendar-body {
+  padding: 0 1px;
+  opacity: .7;
+  position: relative;
+  height: 88%;
+}
+
+.fitness-my-activities-calendar-month {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  font-size: 2.6em;
+  width: 100%;
+  height: 100%;
+  padding: 1% 0;
+}
+
+.fitness-my-activities-calendar-prev-month {
+  float: left;
+  height: 80%;
+  z-index: 10;
+  border: 1px solid #0F109E;
+}
+
+.fitness-my-activities-calendar-next-month {
+  float: right;
+  height: 80%;
+  z-index: 10;
+  border: 1px solid #0F109E;
+}
+
+
+
+
+.fitness-my-activities-calendar {
+  border-collapse: collapse;
+  height: 100%;
+  width: 100%;
+
+  display: table;
+  position: relative;
+}
+
+.fitness-my-activities-calendar thead {
+  height: 5%;
+  min-height: 24px;
+}
+
+.fitness-my-activities-calendar th {
+  text-align: center;
+  font-size: 0.8em;
+}
+
+.fitness-my-activities-calendar tr {
+  position: relative;
+  display: table-row;
+  min-height: 75px;
+}
+
+.fitness-my-activities-calendar-day {
+  position: relative;
+  display: table-cell;
+  max-height: 100px;
+  width: 14.25%;
+  margin: 0;
+  padding: 0;
+  border: 2px solid black;
+}
+
+.fitness-my-activities-calendar-day.locked {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+
+
+.fitness-my-activities-calendar-day-header {
+  position: absolute;
+  top: 0;
+  height: 24%;
+  width: 100%;
+  margin-top: -1px;
+
+  background: rgba(15,16,156,0.6);
+  color: white;
+}
+
+.fitness-my-activities-calendar-day-number {
+  text-align: right;
+  padding-right: 4%;
+  height: 100%
+}
+
+.fitness-my-activities-calendar-day-body {
+  position: absolute;
+  top: calc(24% - 1px);
+  height: 76%;
+  width: 100%;
+}
+
+.fitness-my-activities-calendar-day-body.changed {
+  background: #FF8;
+}
+
+.fitness-my-activities-calendar-day-body.bad {
+  background: #F66;
+  color: #FFF;
+}
+
+
+.fitness-my-activities-calendar-day-distance {
+  border: none;
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+  appearance: none;
+  height: 100%;
+  line-height: 100%;
+  width: 100%;
+  min-width: 60px;
+  padding: 10% 0;
+
+  text-align: center;
+  font-size: 2em;
+  background: none;
+}
+
+
+
+
+
+
+
+.fitness-leaderboard {
+  position: relative;
+  top: 20px;
+  left: 30px;
+  height: calc(100% - 40px);
+  min-height: 600px;
+  width: calc(100vw - 280px);
+  border: 2px solid #666;
+  box-shadow: 5px 5px 5px #333;
+  background: rgba(240,240,240,0.7);
+  overflow: auto;
+}
+
+.fitness-leaderboard-box {
+  position: relative;
+  height: 46%;
+  width: 96%;
+  margin: 2%;
+  border: 2px solid #0F109E;
+  background: rgba(15,16,146,0.4);
+}
+
+.fitness-leaderboard-table {
+  height: 100%;
+  width: 100%;
+  list-style: none;
+  padding: 2%;
+}
+
+.fitness-leaderboard-header {
+  height: 20%;
+  color: #FFF;
+  font-size: 1.4em;
+  padding: 1%;
+}
+
+.fitness-leaderboard-logged-out {
+    position: relative;
+    height: 80%;
+    width: 100%;
+    text-align: center;
+    font-size: 5em;
+    color: rgba(255,255,255,0.5);
+}
+
+.fitness-leaderboard-row {
+  position: relative;
+  height: 16%;
+  background: rgba(255,255,255,0.8);
+  border-bottom: 1px solid #333;
+  padding: 1%;
+  font-size: 1.2em;
+  font-family: verdana;
+}
+
+.fitness-leaderboard-cell {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.fitness-leaderboard-cell div {
+  float: left;
+  height: 100%;
+}
+
+.fitness-leaderboard-cell div:before {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.fitness-leaderboard-cell .place {
+  width: 5%;
+}
+
+.fitness-leaderboard-cell .employee {
+  width: 70%;
+}
+
+.fitness-leaderboard-cell .distance {
+  width: 25%;
+  text-align: right;
+}

@@ -1,0 +1,57 @@
+<svg width="10%" height="10%" viewBox="0 0 126 126" fill="#FF2222" preserveaspectratio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+	<circle cx="63" cy="18" r="18" fill="#F00">
+		<animate attributeName="r" from="18" t="18" 
+				 begin="0s" dur="2s" 
+				 values="18;15;13;11;9;7;5;3;18" 
+				 calcMode="linear" repeatCount="indefinite">
+		</animate>
+	</circle>
+	<circle cx="93" cy="33" r="3" fill="#F00">
+		<animate attributeName="r" from="3" o="3" 
+				 begin="0s" dur="2s" 
+				 values="3;18;15;13;11;9;7;5;3" 
+				 calcMode="linear" repeatCount="indefinite">
+		</animate>
+	</circle>
+	<circle cx="108" cy="63" r="5" fill="#F00">
+		<animate attributeName="r" from="5" o="5" 
+				 begin="0s" dur="2s" 
+				 values="5;3;18;15;13;11;9;7;5" 
+				 calcMode="linear" repeatCount="indefinite">
+		</animate>
+	</circle>
+	<circle cx="93" cy="93" r="7" fill="#F00">
+		<animate attributeName="r" from="7" o="7" 
+				 begin="0s" dur="2s" 
+				 values="7;5;3;18;15;13;11;9;7" 
+				 calcMode="linear" repeatCount="indefinite">
+		</animate>
+	</circle>
+	<circle cx="63" cy="108" r="9" fill="#F00">
+		<animate attributeName="r" from="9" o="9" 
+				 begin="0s" dur="2s" 
+				 values="9;7;5;3;18;15;13;11;9" 
+				 calcMode="linear" repeatCount="indefinite">
+		</animate>
+	</circle>
+	<circle cx="33" cy="93" r="11" fill="#F00">
+		<animate attributeName="r" from="11" t="11" 
+				 begin="0s" dur="2s" 
+				 values="11;9;7;5;3;18;15;13;11" 
+				 calcMode="linear" repeatCount="indefinite">
+		</animate>
+	</circle>
+	<circle cx="18" cy="63" r="13" fill="#F00">
+		<animate attributeName="r" from="13" t="13" 
+				 begin="0s" dur="2s" 
+				 values="13;11;9;7;5;3;18;15;13" 
+				 calcMode="linear" repeatCount="indefinite">
+		</animate>
+	</circle>
+	<circle cx="33" cy="33" r="15" fill="#F00">
+		<animate attributeName="r" from="15" t="15" 
+				 begin="0s" dur="2s" 
+				 values="15;13;11;9;7;5;3;18;15" calcMode="linear" repeatCount="indefinite">
+		</animate>
+	</circle>
+</svg>
