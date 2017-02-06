@@ -97,13 +97,15 @@ table {
 }
 
 #loginMenu {
-  visibility: hidden;
+	visibility: hidden;
   position: absolute;
   top: 40px;
   right: 5px;
   height: 200px;
-  background-color: #678;
-  border: 3px solid #ABC;
+  width: 16em;
+  padding: 1em;
+  background-color: #FFF;
+  border: 3px solid #118;
   border-radius: 15px;
   opacity: 0;
   cursor: default;
@@ -116,40 +118,21 @@ table {
   visibility: visible;
 }
 
-#loginMenu ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
 
-  -webkit-padding-start: 0;
+.login-textbox input {
+	font-size: 1.4em;
 }
 
-#loginMenu li {
-  margin: 3px 5px 3px 5px;
-  height: 32px;
-}
 
-#loginMenu li span {
-  height: 28px;
-  line-height: 28px;
-  font-size: 18px;
-}
-
-/*#loginMenu li input*/
-.login-textbox {
-	color: #678;
-  height: 34px;
-  line-height: 34px;
-  font-size: 24px;
-  width: 200px;
-}
-
-/*#loginMenu li button */
 .login-button {
-  margin-top: 5px;
-  background-color: #ABC;
-  color: #FFF;
+  margin: 5px;
   font-family: Helvetica;
+	text-align: center;
+}
+
+.login-button button {
+  background-color: #99F;
+  color: #FFF;
 }
 
 
@@ -159,9 +142,10 @@ table {
   position: absolute;
   top: 40px;
   right: 5px;
-  height: 60px;
-  background-color: #678;
-  border: 3px solid #ABC;
+  height: 90px;
+	padding: 1em;
+  background-color: #FFF;
+  border: 3px solid #118;
   border-radius: 15px;
   opacity: 0;
   cursor: default;
@@ -174,11 +158,10 @@ table {
   visibility: visible;
 }
 
-.logout-button {
-  background-color: #678;
+.logout-button button {
+  background-color: #99F;
   color: #FFF;
-  font-family: Helvetica;
-  }
+}
 
 
 .startslide {
@@ -509,10 +492,20 @@ nav.header-menu ul li ul li {
 	cursor: pointer;
 }
 
+.quick-info-indent {
+  padding-left: 35px;
+}
+
+.quick-info-space {
+  position: relative;
+  height: 10px;
+}
+
 .quick-info-address {
   padding-left: 10px;
   margin-bottom: 10px;
 }
+
 
 
 .company-info-area {
@@ -543,59 +536,59 @@ nav.header-menu ul li ul li {
 	overflow-y: auto;
 }
 
-
 .company-info-pane.showpane {
   display: block;
 }
 
-.company-history-year {
-  padding-left: 10px;
-  font-size: 14px;
-}
-
-.company-history-text {
-  padding: 5px 5px 20px 25px;
-}
-
-.quality-objectives {
-  margin: 0;
-  list-style: none;
-  padding: 0;
-}
-
-.quality-objective {
-  margin: 10px 0;
-  list-style-type: upper-roman;
-}
 
 
-.philosophy-list {
+.content-list-dot {
+	list-style: disc;
 	margin: 0;
 	padding: 0 20px;
 }
 
-.philosophy-list li {
+.content-list-impact {
+	list-style: none;
+	margin: 0;
+	padding: 0 20px;
+}
+
+.content-list-numbered {
+	list-style-type: decimal;
+	margin: 0;
+	padding: 0 20px;
+}
+
+.content-list-roman {
+  list-style-type: upper-roman;
+	margin: 0;
+	padding: 0 20px;
+}
+
+.content-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.content-list-item-impact {
+	font-weight: bold;
+	margin-left: -10px;
+}
+
+.content-list-item {
 	margin-bottom: 10px;
 }
 
-.philosophy-list-item {
-
+.content-list-item .quick-info-info {
+	padding: 0;
 }
 
-.philosophy-list-item-header {
-	list-style: none;
-	font-weight: bold;
-	margin-left: 0;
+.content-list-item-impact .quick-info-info {
+	padding: 0;
 }
 
-.philosophy-list-item-clean {
-	list-style: none;
-	margin-left: 10px;
-}
-
-.philosophy-list-item.numbered {
-	list-style-type: decimal;
-}
 
 
 
@@ -616,6 +609,7 @@ nav.header-menu ul li ul li {
   padding-left: 4px;
   color: #77F;
   border-top: 4px solid #77F;
+	cursor: pointer;
 }
 
 .company-info-tab.selected {
@@ -782,6 +776,12 @@ nav.header-menu ul li ul li {
 	height: 50px;
 	line-height: 50px;
 	box-shadow: -2px 2px 5px #555;
+}
+
+.employee-directory-info {
+  float: right;
+  margin-right: 5%;
+  font-size: .9em;
 }
 
 .employee-directory-sortby {
@@ -1372,7 +1372,8 @@ nav.header-menu ul li ul li {
 
 
 .edit-metrics {
-
+	width: 98%;
+  margin: 1em;
 }
 
 .edit-metrics-title {
@@ -1381,8 +1382,13 @@ nav.header-menu ul li ul li {
   font-size: 3em;
 }
 
+.edit-metrics-table-area {
+	width: 100%;
+	overflow: auto;
+}
+
 .edit-metrics-table {
-  margin: 1em;
+	width: 200%;
 }
 
 .edit-metrics-table th {

@@ -4,7 +4,7 @@ window.app.ports.openLinkInJS.subscribe(function(incoming) {
   if (incoming.startsWith('mailto'))
     window.location.href=incoming
   else
-    window.open(incoming,'Windows');
+    window.open(incoming,'_blank');
 })
 
 

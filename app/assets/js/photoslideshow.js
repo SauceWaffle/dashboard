@@ -1,6 +1,6 @@
 window.app.ports.initPhotoSlideshow.subscribe(function(incoming) {
   window.CHESLIDESHOW = (function () {
-    console.log(incoming)
+    
   	var numSlides = incoming,
   		currentSlideIndex = 0,
       newSlideIndex = 0,
@@ -95,7 +95,7 @@ window.app.ports.initPhotoSlideshow.subscribe(function(incoming) {
       nextArrow.addEventListener('click', window.CHESLIDESHOW.nextSlide);
 
   if (!window.slideshow)
-    window.slideshow = setInterval(function(){ window.CHESLIDESHOW.nextSlide() },5000);
+    window.slideshow = setInterval(function(){ window.CHESLIDESHOW.nextSlide() },10000);
 
 })
 

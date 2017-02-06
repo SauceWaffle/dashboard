@@ -21,6 +21,172 @@ import Utilities exposing (..)
 import AppNavigation exposing (urlFromPage)
 
 
+
+
+-- HOME PAGE LISTS
+
+
+companyInfo =
+  [ { tab = "qed 101"
+    , contents =
+          [ { style = "popup", label = "Company Directory", link = "employeeDirectory", subcontentType = "", subcontent = [] }
+          , { style = "popup", label = "Employee Handbook", link = "http://internal.qualedyn.local/usr/pdf/QED_Emp_Hb_Feb2015.pdf", subcontentType = "", subcontent = [] }
+          , { style = "popup", label = "Smoking Perimeter", link = "http://internal.qualedyn.local/usr/pdf/QED%20Smoking%20Perimeter.pdf", subcontentType = "", subcontent = [] }
+          , { style = "popup", label = "Expectations and Policies", link = "http://internal.qualedyn.local/usr/pdf/QED_Expectations_and_Policies.pdf", subcontentType = "", subcontent = [] }
+          , { style = "expandable", label = "From Dr. Fujita", link = "", subcontentType = "list", subcontent =
+                  [ { style = "popup", label = "New Year's Message 2017", link = "http://internal.qualedyn.local/usr/Dr.Fujita/NY%20Email%202017.pdf"}
+                  , { style = "popup", label = "New Year's Message 2016", link = "http://internal.qualedyn.local/usr/Dr.Fujita/NY%20Email%202016.pdf"}
+                  , { style = "popup", label = "New Year's Message 2015", link = "http://internal.qualedyn.local/usr/Dr.Fujita/NY%20Email%202015.pdf"}
+                  , { style = "popup", label = "New Year's Message 2014", link = "http://internal.qualedyn.local/usr/Dr.Fujita/NY%20Email%202014.pdf"}
+                  , { style = "popup", label = "New Year's Message 2013", link = "http://internal.qualedyn.local/usr/Dr.Fujita/NY%20Email%202013.pdf"}
+                  , { style = "popup", label = "New Year's Message 2012", link = "http://internal.qualedyn.local/usr/Dr.Fujita/NY%20Email%202012.pdf"}
+                  , { style = "popup", label = "New Year's Message 2011", link = "http://internal.qualedyn.local/usr/Dr.Fujita/NY%20Email%202011.pdf"}
+                  , { style = "popup", label = "New Year's Message 2010", link = "http://internal.qualedyn.local/usr/Dr.Fujita/NY%20Email%202010.pdf"}
+                  ]
+            }
+          -- , { style = "expandable", label = "History of QED", link = "impactList", subcontent =
+          --         [ { style = "impact", label = "2006", link = "" }
+          --         , { style = "text", label = "QED moves to 777 Beta Drive and leases 3,500 square feet of space.", link = "" }
+          --         , { style = "impact", label = "2009", link = "" }
+          --         , { style = "text", label = "QED relocates to 27,000 square feet at 700 Beta Drive. The facility further expands to 35,000 square feet between January 2009 and May 2015.", link = "" }
+          --         , { style = "impact", label = "2015-05-19", link = "" }
+          --         , { style = "text", label = "QED Lease Signing Ceremony. 6655 Beta Drive is one of the largest commercial buildings in Mayfield Village and will be the newest home of QED. On May 5, 2015, Quality Electrodynamics (QED) committed to leasing 77,000 suqare feet of space, expandable up to 200,000 square feet.", link = "" }
+          --         ]
+          --   }
+          ]
+    }
+  , { tab = "quality"
+    , contents =
+        [ { style = "regular", label = "Quality Policy", link = "", subcontentType = "", subcontent =
+                  [ { style = "text", label = "QED is committed to producing products that comply with all applicable regulations and meet customer and user requirements regarding performance, safety, reliability, and quality, and to maintaining the effectiveness of its quality management system.", link = "" }
+                  ]
+          }
+        , { style = "regular", label = "2016 Quality Objectives", link = "", subcontentType = "romanList", subcontent =
+                  [ { style = "text", label = "QED is committed to producing products that comply with all applicable regulations and meet customer and user requirements regarding performance, safety, reliability, and quality, and to maintaining the effectiveness of its quality management system.", link = "" }
+                  , { style = "text", label = "98% of product have no defects found in final inspection (DUR-A) and ≥ 70% of product have no defects found in-process (DUR-B)", link = "" }
+                  , { style = "text", label = "Identify and establish a baseline for the cost of poor quality; reduce cost of poor quality by ≥ 20%", link = "" }
+                  , { style = "text", label = "100% of Urgent and Important complaints closed within 90 days of device receipt (if returned) or origination (if not returned)", link = "" }
+                  , { style = "text", label = "100% of suppliers that produce components that are critical to safety (Category A) or critical to function (Category B) have a supplier reject rate of ≤ 3%", link = "" }
+                  , { style = "text", label = "Implement UDI on all relevant products by July 2016", link = "" }
+                  ]
+          }
+        ]
+    }
+
+  , { tab = "philosophy"
+    , contents =
+        [ { style = "expandable", label = "Mission Statement", link = "", subcontentType = "dotList", subcontent =
+                [ { style = "text", label = "QED succeeds by delivering outstanding performance and quality products.", link = "" }
+                , { style = "text", label = "We believe in service beyond expectations, achieved through a constant desire to anticipate and fulfill evolving customer needs." , link = "" }
+                , { style = "text", label = "The honesty, intelligence and commitment of our associates are vital to QED’s mission and long-term success.", link = "" }
+                , { style = "text", label = "We share pride in QED and respect each individual’s contribution at every level.", link = "" }
+                , { style = "text", label = "Exemplary customer relationships drive QED’s growth and prosperity.", link = "" }
+                , { style = "text", label = "QED is dedicated to pushing the limits of excellence, standing at the forefront to provide the finest and healthiest environments attainable in the industry.", link = "" }
+                , { style = "text", label = "QED always strives to exceed its best.", link = "" }
+                ]
+          }
+        , { style = "expandable", label = "Corporate Values", link = "", subcontentType = "impactList", subcontent =
+                [ { style = "impact", label = "Purpose", link = "" }
+                , { style = "text", label = "To provide opportunities for all of our associates and contribute positively to customer and society through our collaborative efforts.", link = "" }
+                , { style = "impact", label = "Integrity", link = "" }
+                , { style = "text", label = "Be ethical. Do the right thing as a human being while always maintaining the highest ethical standards in both internal and external relationships.", link = "" }
+                , { style = "impact", label = "Attitude", link = "" }
+                , { style = "text", label = "\"Equation of Life\"", link = "" }
+                , { style = "text", label = "Outcome = Ability x Effort x Attitude", link = "" }
+                , { style = "text", label = "The outcome of what one does in life and work is a product of three qualities, i.e., \"Ability,\" \"Effort,\" and \"Attitude.\" The values for \"Ability\" and \"Effort\" range from 0 to 100 whereas the value for \"Attitude\" ranges from -100 to +100. This means no matter how capable or talented one is, his/her outcome or impact becomes very negative and undesirab le if his/her attitude is negative. Thus, always keep a positive attitude.", link = "" }
+                , { style = "impact", label = "Accountability", link = "" }
+                , { style = "text", label = "Set very hight performance standards and hold ourselves - both individually and collectively - accountable to meet our objectives.", link = "" }
+                , { style = "impact", label = "Harmony", link = "" }
+                , { style = "text", label = "Embrace teamwork. Business is based upon partnerships and must raise everyone together. Having a positive attitude is the most important for everything we do. Be kind-hearted and sincere. Care for others.", link = "" }
+                , { style = "impact", label = "Innovations", link = "" }
+                , { style = "text", label = "Make a positive difference for betterment of human society through producing innovative and superior products. Innovate and improve continuously. Today should be better than yesterday, and tomorrow better than today. Always keep in mind that if the rate of change on the outside exceeds the rate of change on the inside, the end is near. The business must be administered with a sense of competitive urgency, and must be kept in balance with the forces at work in this environment.", link = "" }
+                ]
+          }
+        , { style = "expandable", label = "Code of Conduct", link = "", subcontentType = "impactList", subcontent =
+                [ { style = "impact", label = "1. Keep a Passionate Desire in Your Hearts", link = "" }
+                , { style = "text", label = "Your desire must be strong and persistent to penetrate into your subconscious mind.", link = "" }
+                , { style = "impact", label = "2. Strive Harder than Anyone Else", link = "" }
+                , { style = "text", label = "Work steadily, enthusiastically and diligently, one step at a time, never relenting in tedious tasks.", link = "" }
+                , { style = "impact", label = "3. Success is Determined by Willpower", link = "" }
+                , { style = "text", label = "Conducting business requires a persistent, determined and indomitable spirit.", link = "" }
+                , { style = "impact", label = "4. Face Every Challenge with Courage", link = "" }
+                , { style = "text", label = "Be result-orientated and deliver results even in an uncertain world.", link = "" }
+                , { style = "impact", label = "5. Have Clear and Quality Communication", link = "" }
+                , { style = "text", label = "Being able to clearly and succinctly describe what you want done is extremely important. So much is done through communication. Know your audience. It is how initiatives are launched, results are reported, and many things are done in between. Communication is a two-way street with listening as important as speaking. Ask great questions, and listen well.", link = "" }
+                ]
+          }
+        , { style = "expandable", label = "Seven Principles of Management", link = "", subcontentType = "numberedList", subcontent =
+                [ { style = "text", label = "Clearly state the purpose and mission of each task. Set objectives and specific goals clearly, and aim high. Once targets are set, share them with your team\nHave a vision.\nGet the strategy right and be strategically focused.\nKeep everyone focused on the things that matter most.\nExecute the strategy.\nBe results orientated.\nBe customer-focused. Customers determine our success.\nPut the right people in the right places.\nManage multiple priorities that others see as conflicting.\nLearn and adapt to win.\nStay lean and nimble to quickly adapt to ever changing conditions.", link = "" }
+                , { style = "text", label = "Earn fair and yet maximized profit through ethical business practices that result in quality products at best prices, i.e., customer-pleasing products resulting from ongoing R&D and sincere service", link = "" }
+                , { style = "text", label = "Manage our company with a respect for others as if we were a family, bound by the bond of our hearts and the shared purpose, devoid of antagonism, helping each other with a mutual sense of gratitude and appreciation", link = "" }
+                , { style = "text", label = "Maximize revenue and minimize expenses. Measure your inflow and control your outflow. Do well (i.e., make the best profit) by doing good (i.e., by adding the best value to customer). However, do not chase short-term profits at the expense of long-term strategic value creation", link = "" }
+                , { style = "text", label = "Pricing is management. Pricing is top management's responsibility and strategy. Find that one price point where customers are happy to pay and the company is most profitable", link = "" }
+                , { style = "text", label = "Think, think and think. Think both inside and outside the box. Positively and proactively. Associates must treat company assets as they would their own assets", link = "" }
+                , { style = "text", label = "Decisiveness. Make high-quality decisions. Decisions must be based upon facts (i.e., data), objectively considered, fact-founded thought-through approach to decision making. Understand, reflect, and learn about your decision making process. Leaders need to make both quality and timely decisions. In certain situations, difficult and timely decisions must be made in the best interests of the entire organization, decisions that require a firmness, authority, and finality that will not please everyone. Leaders must know when not to act unilaterally but instead foster collaborative decision-making.", link = "" }
+                ]
+          }
+        ]
+    }
+  ]
+
+
+
+quickInfo =
+  [ { style = "regular", label = "Holiday Calendars", link = "", subcontentType = "", subcontent =
+          [ { style = "popup", label = "2017 Holidays", link = "http://internal.qualedyn.local/usr/pdf/QED%20Holidays%20-%202017.pdf"}
+          , { style = "popup", label = "2017 FW Calendar", link = "http://internal.qualedyn.local/usr/pdf/QED%20FW%20calendar%20-%202017.pdf"}
+          ]
+    }
+  , { style = "regular", label = "Facility Information", link = "", subcontentType = "", subcontent =
+        [ { style = "indent", label = "6655 Beta Dr.", link = ""}
+        , { style = "indent", label = "Suite 100", link = ""}
+        , { style = "indent", label = "Mayfield Village, OH  44143", link = ""}
+        , { style = "space", label = "", link = ""}
+        , { style = "text", label = "Telephone: 440-638-5106", link = ""}
+        , { style = "text", label = "Fax: 440-638-5109", link = ""}
+        , { style = "popup", label = "Conference Rooms Map", link = "http://internal.qualedyn.local/usr/pdf/6655_Beta_Rooms.pdf"}
+        , { style = "popup", label = "Conference Rooms Details", link = "http://internal.qualedyn.local/usr/pdf/Conference%20Room%20Details%20081616.pdf"}
+        ]
+    }
+  , { style = "regular", label = "Important Phone Numbers", link = "", subcontentType = "", subcontent =
+          [ { style = "text", label = "Sick/Late Notification: 440-484-2999", link = ""}
+          , { style = "text", label = "Food Delivery: x8009", link = ""}
+          , { style = "text", label = "Emergency Dial-In: 440-638-5106 x8010", link = ""}
+          ]
+    }
+  , { style = "regular", label = "Benefits Portal", link = "", subcontentType = "", subcontent =
+        [ { style = "link", label = "qed.benergy.com", link = "http://www.qed.benergy.com"}
+        , { style = "text", label = "UserID: QED", link = ""}
+        , { style = "text", label = "Password: members", link = ""}
+        ]
+    }
+  , { style = "regular", label = "Web Mail Access", link = "", subcontentType = "", subcontent =
+        [ { style = "link", label = "Qualedyn.net", link = "https://mail.qualedyn.net/owa"}
+        , { style = "link", label = "Qualedyn.com", link = "http://mail.qualedyn.com"}
+        ]
+    }
+  , { style = "regular", label = "QED Public Site", link = "", subcontentType = "", subcontent =
+        [ { style = "link", label = "Public Website", link = "http://www.qualityelectrodynamics.com/"}
+        , { style = "link", label = "Careers Page", link = "http://www.qualityelectrodynamics.com/info/category-865ca542-2c72-4d1a-adac-56061f573562.aspx"}
+        ]
+    }
+
+  ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 -- VIEW
 
 view : Model -> Html Messages.Msg
@@ -98,31 +264,39 @@ loginView model =
 loginDropDown : Model -> Html Msg
 loginDropDown model =
   div [ class "user-login-menu", id "loginMenu" ]
-  [ ul []
-    [ li [] [ div [ class "login-label" ] [ text "Username" ] ]
-    , li [] [ input [ class "login-textbox", onInput SetLoginUser, value model.username ] [] ]
-    , li [] [ div [ class "login-label" ] [ text "Password" ] ]
-    , li [] [ input [ class "login-textbox"
-                    , type_ "password"
+      [ div [ class "login-textbox mui-textfield" ]
+            [ input [ type_ "text"
+                    , onInput SetLoginUser
+                    , value model.username
+                    ] []
+            , label [] [ text "Username" ]
+            ]
+      , div [ class "login-textbox mui-textfield" ]
+            [ input [ type_ "password"
                     , onInput SetLoginPass
                     , onKeyUp LogInKeyUp
-                    , value model.password ] [] ]
-    , li [ style [("text-align", "center")] ]
-      [ button [ class "login-button mui-btn mui-btn--raised"
+                    , value model.password ] []
+            , label [] [ text "Password" ]
+            ]
+      , div [ class "login-button" ]
+            [ button [ class "mui-btn mui-btn--raised"
                , onClick (EncryptLogin (model.username ++ "|" ++ model.password))
                ]
                [ text "Log In" ]
-                                              ]
-    ]
-  ]
+            ]
+      ]
+
 
 logoutDropDown : Model -> Html Msg
 logoutDropDown model =
   div [ class "user-logout-menu", id "logoutMenu" ]
-  [ button [ class "logout-button mui-btn mui-btn--raised"
+  [ div [ class "logout-button" ]
+        [ button [ class "mui-btn mui-btn--raised"
             , onClick LogOut
             ]
-            [ text "Log Out" ] ]
+            [ text "Log Out" ]
+        ]
+  ]
 
 
 
@@ -240,7 +414,7 @@ carouselView model =
     firstPic = List.head model.homeCarouselImages
     firstPicDiv = case firstPic of
                     Just x -> [ div [ class "che-slideshow-slide" ]
-                                  [ img [ src ("img/homecarousel/" ++ x.fileName) ] []
+                                  [ img [ src ("usr/homecarousel/" ++ x.fileName) ] []
                                   ]
                               ]
                     Nothing -> []
@@ -250,7 +424,7 @@ carouselView model =
                       Just x -> x
                                 |> List.map (\p ->
                                               div [ class "che-slideshow-slide inactive" ]
-                                                [ img [ src ("img/homecarousel/" ++ p.fileName) ] []
+                                                [ img [ src ("usr/homecarousel/" ++ p.fileName) ] []
                                                 ]
                                             )
                       Nothing -> []
@@ -276,58 +450,6 @@ carouselView model =
 
 
 
-
-quickInfoView : Model -> Html Messages.Msg
-quickInfoView model =
-  div [ class "quick-info-area" ]
-  [ h3 [] [ text "Quick Info" ]
-  , div [ class "quick-info-meat" ]
-      [ calendarsView model
-      , addressesView model
-      , phoneNumbersView model
-      , benefitsInfoView model
-      , webMailView model
-      , publicSiteView model
-      ]
-  ]
-
-companyInfoView : Model -> Html Messages.Msg
-companyInfoView model =
-  div [ class "company-info-area" ]
-  [ h3 [] [ text "Company Info" ]
-  , div [ id "qed101Pane", if model.companyInfoTabSelected == "qed101" then class "company-info-pane showpane" else class "company-info-pane" ]
-    [ div [ class "quick-info-header", onClick (OpenPopupLink "Company Directory" "employeeDirectory") ]
-        [ text "Company Directory"
-        , i [ class "material-icons" ] [ text "open_in_browser" ]
-        ]
-    , div [ class "quick-info-header", onClick (OpenPopupLink "Employee Handbook" "http://internal.qualedyn.local/pdf/QED_Emp_Hb_Feb2015.pdf") ]
-        [ text "Employee Handbook"
-        , i [ class "material-icons" ] [ text "open_in_browser" ]
-        ]
-    , div [ class "quick-info-header", onClick (OpenPopupLink "QED Expectations and Policies" "http://internal.qualedyn.local/pdf/QED_Expectations_and_Policies.pdf") ]
-        [ text "QED Expectations and Policies"
-        , i [ class "material-icons" ] [ text "open_in_browser" ]
-        ]
-    -- , div [ class "quick-info-header", onClick (OpenPopupLink "QED Employee of the Month" "about:blank") ]
-    --     [ text "QED Employee of the Month"
-    --     , i [ class "material-icons" ] [ text "open_in_browser" ]
-    --     ]
-    , qedHistoryView model
-    , fromHiroView model
-    ]
-  , div [ id "qualityPolicyPane", if model.companyInfoTabSelected == "quality" then class "company-info-pane showpane" else class "company-info-pane" ]
-    [ qualityPolicyView model
-    ]
-  , div [ id "philosophyPane", if model.companyInfoTabSelected == "philosophy" then class "company-info-pane showpane" else class "company-info-pane" ]
-    [ philosophyView model
-    ]
-  , ul [ class "company-info-tabs" ]
-    [ li [ if model.companyInfoTabSelected == "qed101" then class "company-info-tab selected" else class "company-info-tab", onClick (SelectInfoTab "qed101") ] [ text "qed 101" ]
-    , li [ if model.companyInfoTabSelected == "quality" then class "company-info-tab selected" else class "company-info-tab", onClick (SelectInfoTab "quality") ] [ text "quality" ]
-    , li [ if model.companyInfoTabSelected == "philosophy" then class "company-info-tab selected" else class "company-info-tab", onClick (SelectInfoTab "philosophy") ] [ text "philosophy" ]
-    ]
-  ]
-
 quickLinksView : Model -> Html Messages.Msg
 quickLinksView model =
   div [ class "quick-links"]
@@ -352,223 +474,153 @@ quickLinksView model =
   ]
 
 
-calendarsView : Model -> Html Messages.Msg
-calendarsView model =
-  div []
-  [ div [ class "quick-info-header" ] [ text "Holiday Calendars" ]
-  , div [ class "quick-info-link", onClick (OpenPopupLink "QED 2016 Holidays" "http://internal.qualedyn.local/pdf/QED%202016%20Holidays.pdf") ] [ text "QED 2016 Holidays" ]
-  , div [ class "quick-info-link", onClick (OpenPopupLink "QED 2016 FW Calendar" "http://internal.qualedyn.local/pdf/QED%20FW%20Calendar%202016.pdf") ] [ text "QED 2016 FW Calendar" ]
-  , div [ class "quick-info-link", onClick (OpenPopupLink "QED 2017 Holidays" "http://internal.qualedyn.local/pdf/QED%20Holidays%20-%202017.pdf") ] [ text "QED 2017 Holidays" ]
-  , div [ class "quick-info-link", onClick (OpenPopupLink "QED 2017 FW Calendar" "http://internal.qualedyn.local/pdf/QED%20FW%20calendar%20-%202017.pdf") ] [ text "QED 2017 FW Calendar" ]
-  ]
 
-addressesView : Model -> Html Messages.Msg
-addressesView model =
-  div []
-  [ div [ class "quick-info-header" ] [ text "QED Facility Information" ]
-  , div [ class "quick-info-address"]
-    [ div [ class "quick-info-info" ] [ text "6655 Beta Dr." ]
-    , div [ class "quick-info-info" ] [ text "Suite 100" ]
-    , div [ class "quick-info-info" ] [ text "Mayfield Village, OH 44143" ]
-    ]
-  , div [ class "quick-info-info" ] [ text "Telephone: 440-638-5106" ]
-  , div [ class "quick-info-info" ] [ text "Fax: 440-638-5109" ]
-  ]
 
-phoneNumbersView : Model -> Html Messages.Msg
-phoneNumbersView model =
-  div []
-  [ div [ class "quick-info-header" ] [ text "Important Phone Numbers" ]
-  , div [ class "quick-info-info" ] [ text "Sick/Late Notification: 440-484-2999" ]
-  , div [ class "quick-info-info" ] [ text "Food Delivery: x8009" ]
-  , div [ class "quick-info-info" ] [ text "Emergency Dial-In: 440-638-5106 x8010" ]
-  ]
 
-benefitsInfoView : Model -> Html Messages.Msg
-benefitsInfoView model =
-  div []
-  [ div [ class "quick-info-header" ] [ text "Benefits Portal" ]
-  , div [ class "quick-info-link", onClick (OpenQuickLink "http://www.qed.benergy.com") ] [ text "qed.benergy.com" ]
-  , div [ class "quick-info-info" ] [ text "UserID: QED" ]
-  , div [ class "quick-info-info" ] [ text "Password: members" ]
-  ]
-webMailView : Model -> Html Messages.Msg
-webMailView model =
-  div []
-  [ div [ class "quick-info-header" ] [ text "Web Mail Access" ]
-  , div [ class "quick-info-link", onClick (OpenQuickLink "https://mail.qualedyn.net/owa") ] [ text "Qualedyn.net" ]
-  , div [ class "quick-info-link", onClick (OpenQuickLink "http://mail.qualedyn.com") ] [ text "Qualedyn.com" ]
-  ]
 
-publicSiteView : Model -> Html Messages.Msg
-publicSiteView model =
-  div []
-  [ div [ class "quick-info-header" ] [ text "QED Public Site" ]
-  , div [ class "quick-info-link", onClick (OpenQuickLink "http://www.qualityelectrodynamics.com/") ] [ text "Public Website" ]
-  , div [ class "quick-info-link", onClick (OpenQuickLink "http://www.qualityelectrodynamics.com/info/category-865ca542-2c72-4d1a-adac-56061f573562.aspx") ] [ text "Careers Page" ]
-  ]
 
-qualityPolicyView : Model -> Html Messages.Msg
-qualityPolicyView model =
-  div []
-  [ div [ class "quick-info-header" ] [ text "QED Quality Policy" ]
-  , div [ class "quick-info-info" ] [ text "QED is committed to producing products that comply with all applicable regulations and meet customer and user requirements regarding performance, safety, reliability, and quality, and to maintaining the effectiveness of its quality management system." ]
-  , div [ class "quick-info-header" ] [ text "2016 Quality Objectives" ]
-  , div [ class "quick-info-info" ]
-    [ ul [ class "quality-objectives" ]
-      [ li [ class "quality-objective" ] [ text "98% of product have no defects found in final inspection (DUR-A) and ≥ 70% of product have no defects found in-process (DUR-B)" ]
-      , li [ class "quality-objective" ] [ text "Identify and establish a baseline for the cost of poor quality; reduce cost of poor quality by ≥ 20%" ]
-      , li [ class "quality-objective" ] [ text "100% of Urgent and Important complaints closed within 90 days of device receipt (if returned) or origination (if not returned)" ]
-      , li [ class "quality-objective" ] [ text "100% of suppliers that produce components that are critical to safety (Category A) or critical to function (Category B) have a supplier reject rate of ≤ 3%" ]
-      , li [ class "quality-objective" ] [ text "Implement UDI on all relevant products by July 2016" ]
-      ]
-    ]
-  ]
 
-philosophyView : Model -> Html Messages.Msg
-philosophyView model =
+
+
+companyInfoView : Model -> Html Messages.Msg
+companyInfoView model =
   let
-    missionArrowClass = if model.companyInfoDropSelected == "mission" then class "material-icons quick-info-header-shown" else class "material-icons"
-    missionBlockClass = if model.companyInfoDropSelected == "mission" then class "quick-info-block quick-info-block-shown" else class "quick-info-block"
-    corpArrowClass = if model.companyInfoDropSelected == "corp" then class "material-icons quick-info-header-shown" else class "material-icons"
-    corpBlockClass = if model.companyInfoDropSelected == "corp" then class "quick-info-block quick-info-block-shown" else class "quick-info-block"
-    codeArrowClass = if model.companyInfoDropSelected == "code" then class "material-icons quick-info-header-shown" else class "material-icons"
-    codeBlockClass = if model.companyInfoDropSelected == "code" then class "quick-info-block quick-info-block-shown" else class "quick-info-block"
-    sevenArrowClass = if model.companyInfoDropSelected == "seven" then class "material-icons quick-info-header-shown" else class "material-icons"
-    sevenBlockClass = if model.companyInfoDropSelected == "seven" then class "quick-info-block quick-info-block-shown" else class "quick-info-block"
+    header = h3 [] [ text "Company Info" ]
+    panes = List.map (companyInfoPaneView model) companyInfo
+    tabs = [ companyInfoTabsView model ]
+
+    companyInfoArea = header :: (List.append panes tabs)
   in
-    div []
-    [ div [ missionBlockClass ]
-        [ div [ class "quick-info-header", onClick (SelectInfoDropdownArea "mission") ]
-            [ text "Mission Statement"
-            , i [ missionArrowClass ] [ text "keyboard_arrow_right" ]
-            ]
-        , ul [ class "philosophy-list" ]
-            [ li [ class "philosophy-list-item" ] [ text "QED succeeds by delivering outstanding performance and quality products." ]
-            , li [ class "philosophy-list-item" ] [ text "We believe in service beyond expectations, achieved through a constant desire to anticipate and fulfill evolving customer needs." ]
-            , li [ class "philosophy-list-item" ] [ text "The honesty, intelligence and commitment of our associates are vital to QED’s mission and long-term success." ]
-            , li [ class "philosophy-list-item" ] [ text "We share pride in QED and respect each individual’s contribution at every level." ]
-            , li [ class "philosophy-list-item" ] [ text "Exemplary customer relationships drive QED’s growth and prosperity." ]
-            , li [ class "philosophy-list-item" ] [ text "QED is dedicated to pushing the limits of excellence, standing at the forefront to provide the finest and healthiest environments attainable in the industry." ]
-            , li [ class "philosophy-list-item" ] [ text "QED always strives to exceed its best." ]
-            ]
-        ]
+    div [ class "company-info-area" ] companyInfoArea
 
-    , div [ corpBlockClass ]
-        [ div [ class "quick-info-header", onClick (SelectInfoDropdownArea "corp") ]
-            [ text "Corporate Values"
-            , i [ corpArrowClass ] [ text "keyboard_arrow_right" ]
-            ]
-        , ul [ class "philosophy-list" ]
-            [ li [ class "philosophy-list-item-header" ] [ text "Purpose" ]
-            , li [ class "philosophy-list-item-clean" ] [ text "To provide opportunities for all of our associates and contribute positively to customer and society through our collaborative efforts." ]
-
-            , li [ class "philosophy-list-item-header" ] [ text "Integrity" ]
-            , li [ class "philosophy-list-item-clean" ] [ text "Be ethical. Do the right thing as a human being while always maintaining the highest ethical standards in both internal and external relationships." ]
-
-            , li [ class "philosophy-list-item-header" ] [ text "Attitude" ]
-            , li [ class "philosophy-list-item-clean" ] [ text "\"Equation of Life\"" ]
-            , li [ class "philosophy-list-item-clean" ] [ text "Outcome = Ability x Effort x Attitude" ]
-            , li [ class "philosophy-list-item-clean" ] [ text "The outcome of what one does in life and work is a product of three qualities, i.e., \"Ability,\" \"Effort,\" and \"Attitude.\" The values for \"Ability\" and \"Effort\" range from 0 to 100 whereas the value for \"Attitude\" ranges from -100 to +100. This means no matter how capable or talented one is, his/her outcome or impact becomes very negative and undesirab le if his/her attitude is negative. Thus, always keep a positive attitude." ]
-
-            , li [ class "philosophy-list-item-header" ] [ text "Accountability" ]
-            , li [ class "philosophy-list-item-clean" ] [ text "Set very hight performance standards and hold ourselves - both individually and collectively - accountable to meet our objectives." ]
-
-            , li [ class "philosophy-list-item-header" ] [ text "Harmony" ]
-            , li [ class "philosophy-list-item-clean" ] [ text "Embrace teamwork. Business is based upon partnerships and must raise everyone together. Having a positive attitude is the most important for everything we do. Be kind-hearted and sincere. Care for others." ]
-
-            , li [ class "philosophy-list-item-header" ] [ text "Innovations" ]
-            , li [ class "philosophy-list-item-clean" ] [ text "Make a positive difference for betterment of human society through producing innovative and superior products. Innovate and improve continuously. Today should be better than yesterday, and tomorrow better than today. Always keep in mind that if the rate of change on the outside exceeds the rate of change on the inside, the end is near. The business must be administered with a sense of competitive urgency, and must be kept in balance with the forces at work in this environment." ]
-            ]
-        ]
-    , div [ codeBlockClass ]
-        [ div [ class "quick-info-header", onClick (SelectInfoDropdownArea "code") ]
-            [ text "Code of Conduct"
-            , i [ codeArrowClass ] [ text "keyboard_arrow_right" ]
-            ]
-        , ul [ class "philosophy-list" ]
-            [ li [ class "philosophy-list-item-header" ] [ text "1. Keep a Passionate Desire in Your Hearts" ]
-            , li [ class "philosophy-list-item-clean" ] [ text "Your desire must be strong and persistent to penetrate into your subconscious mind." ]
-
-            , li [ class "philosophy-list-item-header" ] [ text "2. Strive Harder than Anyone Else" ]
-            , li [ class "philosophy-list-item-clean" ] [ text "Work steadily, enthusiastically and diligently, one step at a time, never relenting in tedious tasks." ]
-
-            , li [ class "philosophy-list-item-header" ] [ text "3. Success is Determined by Willpower" ]
-            , li [ class "philosophy-list-item-clean" ] [ text "Conducting business requires a persistent, determined and indomitable spirit." ]
-
-            , li [ class "philosophy-list-item-header" ] [ text "4. Face Every Challenge with Courage" ]
-            , li [ class "philosophy-list-item-clean" ] [ text "Be result-orientated and deliver results even in an uncertain world." ]
-
-            , li [ class "philosophy-list-item-header" ] [ text "5. Have Clear and Quality Communication" ]
-            , li [ class "philosophy-list-item-clean" ] [ text "Being able to clearly and succinctly describe what you want done is extremely important. So much is done through communication. Know your audience. It is how initiatives are launched, results are reported, and many things are done in between. Communication is a two-way street with listening as important as speaking. Ask great questions, and listen well." ]
-            ]
-        ]
-    , div [ sevenBlockClass ]
-        [ div [ class "quick-info-header", onClick (SelectInfoDropdownArea "seven") ]
-            [ text "Seven Principles of Managment"
-            , i [ sevenArrowClass ] [ text "keyboard_arrow_right" ]
-            ]
-        , ul [ class "philosophy-list" ]
-            [ li [ class "philosophy-list-item numbered" ]
-                [ span [] [ text "Clearly state the purpose and mission of each task. Set objectives and specific goals clearly, and aim high. Once targets are set, share them with your team" ]
-                , span [] [ text "Have a vision." ]
-                , span [] [ text "Get the strategy right and be strategically focused." ]
-                , span [] [ text "Keep everyone focused on the things that matter most." ]
-                , span [] [ text "Execute the strategy." ]
-                , span [] [ text "Be results orientated." ]
-                , span [] [ text "Be customer-focused. Customers determine our success." ]
-                , span [] [ text "Put the right people in the right places." ]
-                , span [] [ text "Manage multiple priorities that others see as conflicting." ]
-                , span [] [ text "Learn and adapt to win." ]
-                , span [] [ text "Stay lean and nimble to quickly adapt to ever changing conditions." ]
-                ]
-            , li [ class "philosophy-list-item numbered" ] [ text "Earn fair and yet maximized profit through ethical business practices that result in quality products at best prices, i.e., customer-pleasing products resulting from ongoing R&D and sincere service" ]
-            , li [ class "philosophy-list-item numbered" ] [ text "Manage our company with a respect for others as if we were a family, bound by the bond of our hearts and the shared purpose, devoid of antagonism, helping each other with a mutual sense of gratitude and appreciation" ]
-            , li [ class "philosophy-list-item numbered" ] [ text "Maximize revenue and minimize expenses. Measure your inflow and control your outflow. Do well (i.e., make the best profit) by doing good (i.e., by adding the best value to customer). However, do not chase short-term profits at the expense of long-term strategic value creation" ]
-            , li [ class "philosophy-list-item numbered" ] [ text "Pricing is management. Pricing is top management's responsibility and strategy. Find that one price point where customers are happy to pay and the company is most profitable" ]
-            , li [ class "philosophy-list-item numbered" ] [ text "Think, think and think. Think both inside and outside the box. Positively and proactively. Associates must treat company assets as they would their own assets" ]
-            , li [ class "philosophy-list-item numbered" ] [ text "Decisiveness. Make high-quality decisions. Decisions must be based upon facts (i.e., data), objectively considered, fact-founded thought-through approach to decision making. Understand, reflect, and learn about your decision making process. Leaders need to make both quality and timely decisions. In certain situations, difficult and timely decisions must be made in the best interests of the entire organization, decisions that require a firmness, authority, and finality that will not please everyone. Leaders must know when not to act unilaterally but instead foster collaborative decision-making." ]
-        ]
-      ]
-    ]
-
-qedHistoryView : Model -> Html Messages.Msg
-qedHistoryView model =
+companyInfoTabsView : Model -> Html Msg
+companyInfoTabsView model =
   let
-    historyBlockClass = if model.companyInfoDropSelected == "history" then class "quick-info-block quick-info-block-shown" else class "quick-info-block"
-    historyArrowClass = if model.companyInfoDropSelected == "history" then class "material-icons quick-info-header-shown" else class "material-icons"
+    allTabs = List.map (\t ->
+                    li [ if model.companyInfoTabSelected == t.tab
+                            then class "company-info-tab selected"
+                            else class "company-info-tab"
+                      , onClick (SelectInfoTab t.tab)
+                      ]
+                      [ text t.tab ]
+              ) companyInfo
   in
-    div [ historyBlockClass ]
-    [ div [ class "quick-info-header", onClick (SelectInfoDropdownArea "history") ]
-        [ text "History of QED"
-        , i [ historyArrowClass ] [ text "keyboard_arrow_right" ]
-        ]
-    , div [ class "company-history-year" ] [ text "2006" ]
-    , div [ class "company-history-text" ] [ text "QED moves to 777 Beta Drive and leases 3,500 square feet of space." ]
-    , div [ class "company-history-year" ] [ text "2009" ]
-    , div [ class "company-history-text" ] [ text "QED relocates to 27,000 square feet at 700 Beta Drive. The facility further expands to 35,000 square feet between January 2009 and May 2015." ]
-    , div [ class "company-history-year" ] [ text "2015-05-19" ]
-    , div [ class "company-history-text" ] [ text "QED Lease Signing Ceremony. 6655 Beta Drive is one of the largest commercial buildings in Mayfield Village and will be the newest home of QED. On May 5, 2015, Quality Electrodynamics (QED) committed to leasing 77,000 suqare feet of space, expandable up to 200,000 square feet." ]
+    ul [ class "company-info-tabs" ] allTabs
+
+companyInfoPaneView : Model -> CIContent -> Html Msg
+companyInfoPaneView model ci =
+  let
+    paneClass = if model.companyInfoTabSelected == ci.tab
+                  then class "company-info-pane showpane"
+                  else class "company-info-pane"
+
+    paneContents = List.map (contentView model) ci.contents
+  in
+    div [ paneClass ] paneContents
+
+
+quickInfoView : Model -> Html Messages.Msg
+quickInfoView model =
+  let
+    quickInfoContent = List.map (contentView model) quickInfo
+  in
+    div [ class "quick-info-area" ]
+    [ h3 [] [ text "Quick Info" ]
+    , div [ class "quick-info-meat" ]
+        quickInfoContent
     ]
 
-fromHiroView : Model -> Html Messages.Msg
-fromHiroView model =
+
+
+
+
+contentView : Model -> Content -> Html Msg
+contentView model c =
+    case c.style of
+        "popup" -> contentPopupView c
+        "expandable" -> contentExpandableView model c
+        _ -> contentItemView model c
+
+
+contentPopupView : Content -> Html Msg
+contentPopupView c =
   let
-    hiroBlockClass = if model.companyInfoDropSelected == "hiro" then class "quick-info-block quick-info-block-shown" else class "quick-info-block"
-    hiroArrowClass = if model.companyInfoDropSelected == "hiro" then class "material-icons quick-info-header-shown" else class "material-icons"
+    header = div [ class "quick-info-header", onClick (OpenPopupLink c.label c.link) ]
+              [ text c.label
+              , i [ class "material-icons" ] [ text "open_in_browser" ]
+              ]
+    contents = contentSubcontentsView c
+
+    divBody = header :: [ contents ]
   in
-    div [ hiroBlockClass ]
-    [ div [ class "quick-info-header", onClick (SelectInfoDropdownArea "hiro") ]
-        [ text "From Dr. Fujita"
-        , i [ hiroArrowClass ] [ text "keyboard_arrow_right" ]
-        ]
-    , div [ class "quick-info-link", onClick (OpenPopupLink "New Year's Message 2015" "http://internal.qualedyn.local/Dr.Fujita/NY%20Email%202015.pdf") ] [ text "New Year's Message 2015" ]
-    , div [ class "quick-info-link", onClick (OpenPopupLink "New Year's Message 2014" "http://internal.qualedyn.local/Dr.Fujita/NY%20Email%202014.pdf") ] [ text "New Year's Message 2014" ]
-    , div [ class "quick-info-link", onClick (OpenPopupLink "New Year's Message 2013" "http://internal.qualedyn.local/Dr.Fujita/NY%20Email%202013.pdf") ] [ text "New Year's Message 2013" ]
-    , div [ class "quick-info-link", onClick (OpenPopupLink "New Year's Message 2012" "http://internal.qualedyn.local/Dr.Fujita/NY%20Email%202012.pdf") ] [ text "New Year's Message 2012" ]
-    , div [ class "quick-info-link", onClick (OpenPopupLink "New Year's Message 2011" "http://internal.qualedyn.local/Dr.Fujita/NY%20Email%202011.pdf") ] [ text "New Year's Message 2011" ]
-    , div [ class "quick-info-link", onClick (OpenPopupLink "New Year's Message 2010" "http://internal.qualedyn.local/Dr.Fujita/NY%20Email%202010.pdf") ] [ text "New Year's Message 2010" ]
-    ]
+    div [] divBody
+
+contentExpandableView : Model -> Content -> Html Msg
+contentExpandableView model c =
+  let
+    blockClass = if model.companyInfoDropSelected == c.label then class "quick-info-block quick-info-block-shown" else class "quick-info-block"
+    arrowClass = if model.companyInfoDropSelected == c.label then class "material-icons quick-info-header-shown" else class "material-icons"
+
+    header = div [ class "quick-info-header", onClick (SelectInfoDropdownArea c.label) ]
+              [ text c.label
+              , i [ arrowClass ] [ text "keyboard_arrow_right" ]
+              ]
+    contents = contentSubcontentsView c
+
+    divBody = header :: [ contents ]
+  in
+    div [ blockClass ] divBody
+
+contentItemView : Model -> Content -> Html Msg
+contentItemView model c =
+  let
+    header = div [ class "quick-info-header" ] [ text c.label ]
+    contents = contentSubcontentsView c
+
+    divBody = header :: [ contents ]
+  in
+    div [] divBody
+
+
+contentSubcontentsView : Content -> Html Msg
+contentSubcontentsView c =
+  case c.subcontentType of
+    "dotList" -> ul [class "content-list-dot" ] <| List.map (contentSubcontentListView) c.subcontent
+    "impactList" -> ul [class "content-list-impact" ] <| List.map (contentSubcontentListView) c.subcontent
+    "numberedList" -> ul [class "content-list-numbered" ] <| List.map (contentSubcontentListView) c.subcontent
+    "romanList" -> ul [class "content-list-roman" ] <| List.map (contentSubcontentListView) c.subcontent
+    "list" -> ul [class "content-list" ] <| List.map (contentSubcontentListView) c.subcontent
+    _ -> div [] <| List.map (contentSubcontentItemView) c.subcontent
+
+
+contentSubcontentListView : ContentLine -> Html Msg
+contentSubcontentListView s =
+  if s.style == "impact"
+    then li [ class "content-list-item-impact" ] [ contentSubcontentItemView s ]
+    else li [ class "content-list-item" ] [ contentSubcontentItemView s ]
+
+
+contentSubcontentItemView : ContentLine -> Html Msg
+contentSubcontentItemView c =
+  let
+    obj = case c.style of
+                "popup" -> div [ class "quick-info-link", onClick (OpenPopupLink c.label c.link) ] [ text c.label ]
+                "link" -> div [ class "quick-info-link", onClick (OpenQuickLink c.link) ] [ text c.label ]
+                "indent" -> div [ class "quick-info-indent" ] [ text c.label ]
+                "space" -> div [ class "quick-info-space" ] []
+                _ -> div [ class "quick-info-info" ] [ text c.label ]
+  in
+    obj
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -603,6 +655,7 @@ employeeDirectoryView model =
                     , li [ onClick (SetEmployeeDirectorySortBy "Department") ] [ a [ href "#" ] [ text "Department" ] ]
                     ]
                 ]
+              , div [ class "employee-directory-info" ] [ text "[ click on employee for details ]" ]
               ]
 
           , ul [ class "employee-directory-list" ] emps
@@ -647,7 +700,7 @@ employeeDetailsView model =
     empPhoto =
         if model.selectedEmployee.photo == ""
           then i [ class "employee-detail-card-no-photo material-icons md-96" ] [ text "face" ]
-          else img [ class "employee-detail-card-photo", src ("img/employees/" ++ model.selectedEmployee.photo) ] []
+          else img [ class "employee-detail-card-photo", src ("usr/employees/" ++ model.selectedEmployee.photo) ] []
 
     officePhoneShown = if model.selectedEmployee.office == ""
                           then blankDiv
@@ -1354,51 +1407,49 @@ editMetricsView : Model -> Html Messages.Msg
 editMetricsView model =
     div [ class "edit-metrics" ]
       [ div [ class "edit-metrics-title" ] [ text "Supply Chain Metrics" ]
-      , golferDataView model
+      , editMetricsTableView model
       , div [ class "edit-metrics-save-changes" ]
             [ button [ onClick SaveMetricChanges, class "mui-btn mui-btn--raised" ] [ text "Save Changes" ]
             ]
       ]
 
-golferDataView : Model -> Html Msg
-golferDataView model =
+editMetricsTableView : Model -> Html Msg
+editMetricsTableView model =
   let
-    listOfMetricRows = List.map (\g ->  golferDataRow model g ) model.allMetricRows
+    columnHeaders = List.map (editMetricsTableColumnHeaderView) model.metric.columns
+    header = thead [] columnHeaders
+
+    listOfMetricRows = List.map (editMetricsTableRowView model) model.metric.rows
   in
-    table [ class "edit-metrics-table" ] (golferDataHeader :: listOfMetricRows)
+    div [ class "edit-metrics-table-area" ]
+      [ table [ class "edit-metrics-table" ] (header :: listOfMetricRows)
+      ]
 
-golferDataHeader : Html Msg
-golferDataHeader =
-  thead []
-          [ th [] [ text "Name" ]
-          , th [] [ text "Linked Account" ]
-          , th [] [ text "Place" ]
-          , th [] [ text "Handicap" ]
-          , th [] [ text "Average Score" ]
-          , th [] [ text "Total Score" ]
-          , th [] [ text "Number of Rounds" ]
-          , th [] [ text "Chatroom Font Color" ]
-          , th [] [ text "Remove Golfer" ]
-          ]
 
-golferDataRow : Model -> MetricRow -> Html Msg
-golferDataRow model mr =
+editMetricsTableColumnHeaderView : String -> Html Msg
+editMetricsTableColumnHeaderView s =
+  th [] [ text s ]
+
+
+editMetricsTableRowView : Model -> MetricRow -> Html Msg
+editMetricsTableRowView model mr =
   let
     rowSelected = if model.currentMetricRow.id == mr.id
                     then class "selected-row"
                     else class ""
+
+    fields = List.map (editMetricsTableFieldView) model.metric.columns
   in
-    tr [ onClick (SetCurrentMetricRow mr), rowSelected ]
-      [ td [] [ text "" ]--input [ type_ "text", onInput (UpdateCurrentGolfer "name"), value g.name ] [] ]
-      , td [] [ text "" ]--select [ onInput (UpdateCurrentGolfer "uid") ] linkedUserOptions ]
-      , td [] [ text "" ]--text (toString g.place) ]
-      , td [] [ text "" ]--input [ type_ "text", onInput (UpdateCurrentGolfer "handicap"), value (toString g.handicap) ] [] ]
-      , td [] [ text "" ]--text ( (g.totalScore // g.numOfRounds) |> toString) ]
-      , td [] [ text "" ]--input [ type_ "text", onInput (UpdateCurrentGolfer "total"), value (toString g.totalScore) ] [] ]
-      , td [] [ text "" ]--input [ type_ "text", onInput (UpdateCurrentGolfer "rounds"), value (toString g.numOfRounds) ] [] ]
-      , td [] [ text "" ]--input [ type_ "color", onInput (UpdateCurrentGolfer "color"), value g.chatroomColor ] [] ]
-      , td [] [ text "X" ]
-      ]
+    tr [ onClick (SetCurrentMetricRow mr), rowSelected ] fields
+
+
+editMetricsTableFieldView : String -> Html Msg
+editMetricsTableFieldView f =
+  td [] [ text "" ]
+
+
+
+
 
 
 

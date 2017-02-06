@@ -118,7 +118,7 @@ type alias Model =
 
   -- EDIT METRICS
   , currentMetricRow : MetricRow
-  , allMetricRows : List MetricRow
+  , metric : Metric
   }
 
 
@@ -135,7 +135,7 @@ initModel =
 
   -- HOME PAGE
   , homeCarouselImages = []
-  , companyInfoTabSelected = "qed101"
+  , companyInfoTabSelected = "qed 101"
   , companyInfoDropSelected = ""
   , homePopupShown = False
   , homePopupTitle = ""
@@ -183,20 +183,22 @@ initModel =
 
   -- EDIT Metrics
   , currentMetricRow = { id = 0 }
-  , allMetricRows = --[]
-      [ {id = 1}
-      , {id = 2}
-      , {id = 3}
-      , {id = 4}
-      , {id = 5}
-      ]
+  , metric =
+    { columns = [ "Name", "Linked Account", "Place", "Handicap", "Average Score", "Total Score", "Number of Rounds", "Chatroom Font Color", "Remove Golfer" ]
+    , rows = [ {id = 1}
+            , {id = 2}
+            , {id = 3}
+            , {id = 4}
+            , {id = 5}
+            ]
+    }
   }
 
 
 newPageMenu : List Menu
 newPageMenu =
   [{ name = "Home", link = HomeRoute, subMenus = [] }
-  ,{ name = "QED Fitness", link = QEDFitnessRoute, subMenus = [] }
+  ,{ name = "Fitness", link = QEDFitnessRoute, subMenus = [] }
   ,{ name = "Reports", link = (ReportRoute "home"), subMenus = [] }
   ]
 
@@ -372,6 +374,31 @@ theGauges = [ {id = "aGauge", title = "Cost Savings", value = 0, min = 0.0, max 
 
 
 
+type alias Metric =
+  { columns : List String
+  , rows : List MetricRow
+  }
+
 type alias MetricRow =
   { id : Int
+  }
+
+
+type alias CIContent =
+  { tab : String
+  , contents : List Content
+  }
+
+type alias Content =
+  { style : String
+  , label : String
+  , link : String
+  , subcontentType : String
+  , subcontent : List ContentLine
+  }
+
+type alias ContentLine =
+  { style : String
+  , label : String
+  , link : String
   }

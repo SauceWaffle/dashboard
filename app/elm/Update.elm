@@ -321,7 +321,7 @@ update msg model =
       PageMenuItemsResponse (Ok menuData) ->
         let
           baseMenus = [{ name = "Home", link = HomeRoute, subMenus = [] }
-                      ,{ name = "QED Fitness", link = QEDFitnessRoute, subMenus = [] }
+                      ,{ name = "Fitness", link = QEDFitnessRoute, subMenus = [] }
                       ,{ name = "Reports", link = (ReportRoute "home"), subMenus = menuData }
                       ]
 
